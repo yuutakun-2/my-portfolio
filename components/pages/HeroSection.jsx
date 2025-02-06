@@ -89,7 +89,7 @@ export default function HeroSection() {
             }}
           />
           <img
-            src="../public/Arkar Chan Myae.png"
+            src="../Arkar Chan Myae.png"
             alt="Profile photo"
             style={{
               borderRadius: "50px",

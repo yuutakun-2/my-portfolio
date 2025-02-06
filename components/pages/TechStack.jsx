@@ -17,6 +17,7 @@ export default function TechStack() {
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
           color: "#218A4E",
+          paddingBottom: "40px",
         }}
       >
         &lt;<span style={{ color: "#FFFFFF" }}> My tech-stack </span>&gt;
@@ -34,6 +35,8 @@ export default function TechStack() {
         <StackIcon name="typescript" />
         <StackIcon name="php" />
         <StackIcon name="laravel" />
+        <StackIcon name="mysql" />
+        <StackIcon name="figma" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 140 140"
@@ -77,7 +80,6 @@ export default function TechStack() {
           />
         </svg>
         <StackIcon name="prisma" />
-        <StackIcon name="mysql" />
         <StackIcon name="reactjs" />
         <StackIcon name="reactquery" />
         <StackIcon name="reactrouter" />
@@ -86,6 +88,25 @@ export default function TechStack() {
         <StackIcon name="postman" />
         <StackIcon name="docker" />
         <StackIcon name="github" />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <svg
+            width="76"
+            height="65"
+            viewBox="0 0 76 65"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="#ffffff" />
+          </svg>
+        </Box>
+        <StackIcon name="netlify" />
+        <StackIcon name="framer" />
       </Box>
     </Container>
   );
