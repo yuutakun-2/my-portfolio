@@ -1,13 +1,14 @@
-import { Box, Typography, Divider, IconButton, Container } from "@mui/material";
-import { User, Envelope, Phone, MapPin } from "@phosphor-icons/react";
-import {
-  GithubLogo,
-  FacebookLogo,
-  LinkedinLogo,
-  TelegramLogo,
-} from "@phosphor-icons/react";
+import { Box, Typography, Divider, Container, IconButton } from "@mui/material";
+import { User, Envelope, Phone, MapPin, ArrowUp } from "@phosphor-icons/react";
+import SocialIcons from "./SocialIcons";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <Box
       sx={{
@@ -20,12 +21,13 @@ export default function Footer() {
         borderTopLeftRadius: "50px",
         borderTopRightRadius: "50px",
       }}
+      id="footer"
     >
-      <Container>
+      <Container maxWidth="lg">
         <Box
           style={{
             display: "flex",
-            width: "100%", // Ensure it takes full width
+            // width: "100%",
           }}
         >
           <Box
@@ -124,6 +126,35 @@ export default function Footer() {
               </Box>
             </Box>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignSelf: "end",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                border: "1px solid #218A4E",
+                width: "fit-content",
+                height: "fit-content",
+                padding: "5px",
+                paddingX: "20px",
+                borderRadius: "10px",
+                ":hover": {
+                  cursor: "pointer",
+                },
+              }}
+              onClick={scrollToTop}
+            >
+              <IconButton>
+                <ArrowUp size={24} style={{ color: "#FFFFFF" }} />
+              </IconButton>
+              Back to top
+            </Box>
+          </Box>
         </Box>
         <Box
           display="flex"
@@ -133,18 +164,7 @@ export default function Footer() {
           style={{ marginTop: "20px" }}
         >
           <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
-          <IconButton>
-            <GithubLogo size={48} color="#218A4E" />
-          </IconButton>
-          <IconButton>
-            <FacebookLogo size={48} color="#218A4E" />
-          </IconButton>
-          <IconButton>
-            <LinkedinLogo size={48} color="#218A4E" />
-          </IconButton>
-          <IconButton>
-            <TelegramLogo size={48} color="#218A4E" />
-          </IconButton>
+          <SocialIcons />
           <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
         </Box>
       </Container>

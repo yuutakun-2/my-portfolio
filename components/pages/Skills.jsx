@@ -14,8 +14,8 @@ export default function Skills() {
         color: "#FFFFFF",
         padding: "40px",
         textAlign: "center",
-        // minHeight: "100vh",
       }}
+      id="skills"
     >
       <Typography
         variant="h2"

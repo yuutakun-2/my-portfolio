@@ -42,7 +42,7 @@ const projects = [
 export default function Projects() {
   return (
     <Container
-      style={{
+      sx={{
         backgroundColor: "#000000",
         color: "#FFFFFF",
         padding: "40px",
@@ -51,12 +51,13 @@ export default function Projects() {
         borderTopRightRadius: "50px",
         borderBottomLeftRadius: "50px",
         borderBottomRightRadius: "50px",
-        overflowX: "hidden", // Hide horizontal scrollbar but keep functionality
-        // maxHeight: "100vh", // Limit height for scrolling
+        // overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
         gap: "40px",
+        scrollMarginTop: "80px",
       }}
+      id="projects"
     >
       <Typography
         variant="h2"

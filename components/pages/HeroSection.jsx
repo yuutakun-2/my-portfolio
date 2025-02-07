@@ -1,15 +1,16 @@
 import { Box, Typography, Container } from "@mui/material";
-import CustomButton from "../Button"; // Importing the CustomButton
-import {
-  GithubLogo,
-  FacebookLogo,
-  Envelope,
-  LinkedinLogo,
-} from "@phosphor-icons/react";
+import CustomButton from "../Button";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
+
+  const scrollToFooter = () => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,6 +23,7 @@ export default function HeroSection() {
     <Container
       style={{ backgroundColor: "#282F37", padding: "40px" }}
       maxWidth="lg"
+      id="herosection"
     >
       <style>
         {`
@@ -40,7 +42,7 @@ export default function HeroSection() {
                   fontFamily: "Ubuntu, sans-serif",
                   fontWeight: "bold",
                   color: "#FFFFFF",
-                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Shadow stroke for "Hello! I am"
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                 }}
               >
                 Hello! I am <br />
@@ -50,8 +52,8 @@ export default function HeroSection() {
                 style={{
                   fontFamily: "Ubuntu, sans-serif",
                   fontWeight: "bold",
-                  color: "#218A4E", // Green color for Arkar
-                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)", // Shadow stroke for "Arkar Chan Myae"
+                  color: "#218A4E",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                 }}
               >
                 Arkar Chan Myae <br /> @ Yuuta
@@ -59,8 +61,8 @@ export default function HeroSection() {
             </Box>
             <Typography
               variant="h6"
-              className="default-text" // Use the internal CSS class for default text color
-              style={{ fontWeight: "normal" }} // Set font weight to normal
+              className="default-text"
+              style={{ fontWeight: "normal" }}
             >
               Aspiring Full-Stack Developer
               <br />
@@ -69,52 +71,45 @@ export default function HeroSection() {
               Passionate about Tech that Improves Quality of Life
             </Typography>
             <Box display="flex" gap={4} marginY={2}>
-              <CustomButton color="green">Hire Me!</CustomButton>
+              <CustomButton color="green" onClick={scrollToFooter}>
+                Hire Me!
+              </CustomButton>
               <CustomButton color="default">Projects</CustomButton>
             </Box>
           </Box>
-          {/* Button component will be created later */}
         </Box>
+        {/* Second column */}
         <Box display="flex" position="relative">
-          <Box
-            style={{
-              backgroundColor: "#218A4E",
-              borderRadius: "50px",
-              width: "500px",
-              height: "250px",
-              position: "absolute",
-              bottom: 0,
-              left: 0,
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Added shadow to the box
-            }}
-          />
           <img
             src="../Arkar Chan Myae.png"
             alt="Profile photo"
             style={{
               borderRadius: "50px",
-              width: "500px",
+              width: "100%",
               height: "500px",
-              position: "relative",
               zIndex: 1,
-              opacity: fadeIn ? 1 : 0, // Fade in effect
-              transition: "opacity 0.5s ease", // Transition for fade effect
+              opacity: fadeIn ? 1 : 0,
+              transition: "opacity 0.5s ease",
             }}
           />
           <Box
-            display="flex"
-            flexDirection="column" // Changed to row for horizontal alignment
-            alignItems="flex-end" // Align icons vertically centered
-            marginTop="20px"
-            position="absolute"
-            right="-80px"
-            bottom="0px"
-            gap={4} // Adjusted gap between social icons
+            style={{
+              width: "100%", // Changed to full width
+              height: "250px",
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+            }}
           >
-            <GithubLogo size={48} color="#218A4E" />
-            <FacebookLogo size={48} color="#218A4E" />
-            <LinkedinLogo size={48} color="#218A4E" />
-            <Envelope size={48} color="#218A4E" />
+            <Box
+              style={{
+                backgroundColor: "#218A4E",
+                borderRadius: "30px",
+                width: "100%", // Changed to full width
+                height: "100%",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+              }}
+            />
           </Box>
         </Box>
       </Box>

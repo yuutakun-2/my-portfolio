@@ -1,22 +1,22 @@
 import { Box, Typography, Container } from "@mui/material";
-import CustomButton from "../Button"; // Importing the CustomButton
-
-//View all Services
+import CustomButton from "../Button";
 
 export default function Services() {
   return (
     <Container
-      style={{
+      sx={{
         backgroundColor: "#000000",
         color: "#FFFFFF",
         padding: "40px",
         textAlign: "center",
-        minHeight: "100vh", // Ensures the container takes full height
-        borderTopLeftRadius: "50px", // Rounded top left corner
-        borderTopRightRadius: "50px", // Rounded top right corner
+        minHeight: "100vh",
+        borderTopLeftRadius: "50px",
+        borderTopRightRadius: "50px",
         borderBottomLeftRadius: "50px",
         borderBottomRightRadius: "50px",
+        scrollMarginTop: "80px",
       }}
+      id="services"
     >
       <Typography
         variant="h2"
@@ -29,7 +29,6 @@ export default function Services() {
         }}
       >
         &lt;<span style={{ color: "#FFFFFF" }}> Services </span>&gt;{" "}
-        {/* Wrapped in <> and changed color */}
       </Typography>
       <Typography variant="h6" style={{ marginBottom: "40px" }}>
         I'm currently available as Full-Stack Web Developer and creative UI/UX

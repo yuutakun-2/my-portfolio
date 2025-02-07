@@ -11,6 +11,13 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 
 export default function Header() {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <AppBar
       position="sticky"
@@ -63,24 +70,30 @@ export default function Header() {
               <Button
                 className="nav-button"
                 color="inherit"
-                href="#services"
-                style={{ fontFamily: "Sintony, sans-serif" }}
+                onClick={() => scrollToSection("services")}
+                style={{
+                  fontFamily: "Sintony, sans-serif",
+                }}
               >
                 Services
               </Button>
               <Button
                 className="nav-button"
                 color="inherit"
-                href="#projects"
-                style={{ fontFamily: "Sintony, sans-serif" }}
+                onClick={() => scrollToSection("projects")}
+                style={{
+                  fontFamily: "Sintony, sans-serif",
+                }}
               >
                 Projects
               </Button>
               <Button
                 className="nav-button"
                 color="inherit"
-                href="#contact"
-                style={{ fontFamily: "Sintony, sans-serif" }}
+                onClick={() => scrollToSection("footer")}
+                style={{
+                  fontFamily: "Sintony, sans-serif",
+                }}
               >
                 Contact
               </Button>

@@ -1,6 +1,6 @@
 import { Button as MuiButton } from "@mui/material";
 
-const CustomButton = ({ color, children }) => {
+const CustomButton = ({ color, children, onClick }) => {
   const styles = {
     borderRadius: "20px",
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
@@ -13,7 +13,11 @@ const CustomButton = ({ color, children }) => {
     fontWeight: "bold", // Added font weight for bolder text
   };
 
-  return <MuiButton style={styles}>{children}</MuiButton>;
+  return (
+    <MuiButton style={styles} onClick={onClick}>
+      {children}
+    </MuiButton>
+  );
 };
 
 export default CustomButton;
