@@ -1,11 +1,12 @@
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Typography, Button, Container, Link } from "@mui/material";
 
 const projects = [
   {
-    title: "Project Title 1",
+    title: "Movie World",
     description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
+      "This is a movie database with tmdb api that shows the latest movies and other genres. User can also search by the movie name. Built with next js.",
+    imgSrc: "../next-moviedb.png",
+    href: "https://next-moviedb-yuuta.vercel.app/",
   },
   {
     title: "Project Title 2",
@@ -87,7 +88,7 @@ export default function Projects() {
         }}
       >
         {projects.map((project, index) => (
-          <Box
+          <Link
             key={index}
             style={{
               height: "480px",
@@ -100,7 +101,11 @@ export default function Projects() {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "space-between",
+              textDecoration: "none",
             }}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <img
               src={project.imgSrc}
@@ -157,7 +162,7 @@ export default function Projects() {
             >
               Read more &gt;&gt;&gt;
             </Typography>
-          </Box>
+          </Link>
         ))}
       </Box>
     </Container>
