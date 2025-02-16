@@ -9,16 +9,18 @@ const projects = [
     href: "https://next-moviedb-yuuta.vercel.app/",
   },
   {
-    title: "Project Title 2",
+    title: "Social Media App",
     description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
+      "This is a React app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
+    imgSrc: "../react-app-iota-rose-vercel.app.png",
+    href: "https://react-app-iota-rose.vercel.app/",
   },
   {
-    title: "Project Title 3",
+    title: "Express social media API",
     description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
+      "This is the backend API for the social media app. It is built with Express and JWT for authentication and authorization. The database is PostgreSQL from Neon.",
+    imgSrc: "../express-api-ivory-seven.vercel.app.png",
+    href: "https://express-api-ivory-seven.vercel.app/",
   },
   {
     title: "Project Title 4",
