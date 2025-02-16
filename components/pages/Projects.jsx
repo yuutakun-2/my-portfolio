@@ -9,7 +9,7 @@ const projects = [
       "Movie database with tmdb api that shows the latest movies and other genres. User can also search by the movie name. Built with next js.",
     imgSrc: "../next-moviedb.png",
     href: "https://next-moviedb-yuuta.vercel.app/",
-    category: ["Next.js", "Typescript", "TailwindCSS"],
+    category: ["Next.js", "Typescript", "TailwindCSS", "RadixUI"],
     repo: "https://github.com/yuutakun-2/next-moviedb",
   },
   {
@@ -45,16 +45,12 @@ const projects = [
     repo: "https://github.com/yuutakun-2/express-api",
   },
   {
-    title: "Project Title 5",
+    title: "UI/UX Design",
     description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
-  },
-  {
-    title: "Project Title 6",
-    description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
+      "User-friendly Figma designs for e-commerce website and mobile apps, and Online Class website, each with essential pages for navigation and functionality.",
+    href: "https://www.figma.com/community/file/1413901689757292844/",
+    imgSrc: "../figma.png",
+    category: ["Figma"],
   },
 ];
 
@@ -106,7 +102,7 @@ export default function Projects() {
         }}
       >
         {projects.map((project, index) => (
-          <Link
+          <Box
             key={index}
             style={{
               height: "480px",
@@ -121,9 +117,6 @@ export default function Projects() {
               justifyContent: "space-between",
               textDecoration: "none",
             }}
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <img
               src={project.imgSrc}
@@ -182,44 +175,52 @@ export default function Projects() {
                 alignItems: "center",
               }}
             >
-              <Button
-                variant="contained"
-                href={project.repo}
-                style={{
-                  backgroundColor: "#218A4E",
-                  color: "#FFFFFF",
-                  fontFamily: "Sintony, regular",
-                  fontSize: "0.75rem",
-                  padding: "5px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  gap: "5px",
-                }}
-                href={project.repo}
-              >
-                <GitHubIcon />
-                See repo
-              </Button>
-              <Button
-                variant="contained"
-                href={project.repo}
-                style={{
-                  backgroundColor: "#218A4E",
-                  color: "#FFFFFF",
-                  fontFamily: "Sintony, regular",
-                  fontSize: "0.75rem",
-                  padding: "5px",
-                  borderRadius: "10px",
-                  display: "flex",
-                  gap: "5px",
-                }}
-                href={project.href}
-              >
-                <LanguageIcon />
-                Go to website
-              </Button>
+              {project.href && (
+                <Button
+                  variant="contained"
+                  href={project.repo}
+                  style={{
+                    backgroundColor: "#218A4E",
+                    color: "#FFFFFF",
+                    fontFamily: "Sintony, regular",
+                    fontSize: "0.75rem",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    gap: "5px",
+                  }}
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LanguageIcon />
+                  Go to website
+                </Button>
+              )}
+              {project.repo && (
+                <Button
+                  variant="contained"
+                  href={project.repo}
+                  style={{
+                    backgroundColor: "#218A4E",
+                    color: "#FFFFFF",
+                    fontFamily: "Sintony, regular",
+                    fontSize: "0.75rem",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    gap: "5px",
+                  }}
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHubIcon />
+                  See repo
+                </Button>
+              )}
             </Box>
-          </Link>
+          </Box>
         ))}
       </Box>
     </Container>

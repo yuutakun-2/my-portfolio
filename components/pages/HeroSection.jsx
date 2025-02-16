@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
 
-  const scrollToFooter = () => {
-    const footer = document.getElementById("footer");
-    if (footer) {
-      footer.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -71,10 +71,18 @@ export default function HeroSection() {
               Passionate about Tech that Improves Quality of Life
             </Typography>
             <Box display="flex" gap={4} marginY={2}>
-              <CustomButton color="green" onClick={scrollToFooter}>
+              <CustomButton
+                color="green"
+                onClick={() => scrollToSection("footer")}
+              >
                 Hire Me!
               </CustomButton>
-              <CustomButton color="default">Projects</CustomButton>
+              <CustomButton
+                color="default"
+                onClick={() => scrollToSection("projects")}
+              >
+                My resume
+              </CustomButton>
             </Box>
           </Box>
         </Box>

@@ -61,7 +61,7 @@ export default function Footer() {
               variant="body1"
               style={{ marginTop: "10px", fontFamily: "Sintony, sans-serif" }}
             >
-              Handcrafted by Arkar Chan Myae @ Yuuta
+              Arkar Chan Myae @ Yuuta
             </Typography>
           </Box>
           <Box style={{ flex: 1 }}>
