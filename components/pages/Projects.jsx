@@ -12,7 +12,7 @@ const projects = [
     title: "Social Media App",
     description:
       "This is a React app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
-    imgSrc: "../react-app-iota-rose-vercel.app.png",
+    imgSrc: "../react-app-iota-rose.vercel.app.png",
     href: "https://react-app-iota-rose.vercel.app/",
   },
   {
