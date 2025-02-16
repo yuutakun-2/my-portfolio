@@ -19,11 +19,11 @@ export default function App() {
       <div style={{ margin: "16px 0" }} />
       <HeroSection />
       <div style={{ margin: "16px 0" }} />
-      <Services />
+      <Projects />
       <div style={{ margin: "16px 0" }} />
       <TechStack />
       <div style={{ margin: "16px 0" }} />
-      <Projects />
+      <Services />
       <div style={{ margin: "16px 0" }} />
       <Skills />
       <div style={{ margin: "16px 0" }} />

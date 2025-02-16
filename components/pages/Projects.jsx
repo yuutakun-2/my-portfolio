@@ -1,32 +1,48 @@
 import { Box, Typography, Button, Container, Link } from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const projects = [
   {
     title: "Movie World",
     description:
-      "This is a movie database with tmdb api that shows the latest movies and other genres. User can also search by the movie name. Built with next js.",
+      "Movie database with tmdb api that shows the latest movies and other genres. User can also search by the movie name. Built with next js.",
     imgSrc: "../next-moviedb.png",
     href: "https://next-moviedb-yuuta.vercel.app/",
+    category: ["Next.js", "Typescript", "TailwindCSS"],
+    repo: "https://github.com/yuutakun-2/next-moviedb",
   },
   {
     title: "Social Media App",
     description:
-      "This is a React app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
+      "React app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
     imgSrc: "../react-app-iota-rose.vercel.app.png",
     href: "https://react-app-iota-rose.vercel.app/",
+    category: ["React", "React Query", "React Router", "MaterialUI"],
+    repo: "https://github.com/yuutakun-2/react-app",
+  },
+  {
+    title: "Social Media App - React Native",
+    description:
+      "Social media app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
+    imgSrc: ["../native-app.png"],
+    category: [
+      "React Native",
+      "shadcn/ui",
+      "TailwindCSS",
+      "React Query",
+      "Expo Router",
+    ],
+    repo: "https://github.com/yuutakun-2/native-app",
   },
   {
     title: "Express social media API",
     description:
-      "This is the backend API for the social media app. It is built with Express and JWT for authentication and authorization. The database is PostgreSQL from Neon.",
+      "Express backend API for the social media app. It is built with Express and JWT for authentication and authorization. The database is PostgreSQL from Neon.",
     imgSrc: "../express-api-ivory-seven.vercel.app.png",
     href: "https://express-api-ivory-seven.vercel.app/",
-  },
-  {
-    title: "Project Title 4",
-    description:
-      "This is a brief description of the project. It highlights the main features and goals.",
-    imgSrc: "https://via.placeholder.com/300x175",
+    category: ["ExpressJS", "PostgreSQL", "JWT", "Websocket"],
+    repo: "https://github.com/yuutakun-2/express-api",
   },
   {
     title: "Project Title 5",
@@ -120,18 +136,23 @@ export default function Projects() {
               width="100%"
               sx={{ gap: 1 }}
             >
-              <Button
-                variant="outlined"
-                style={{ color: "#218A4E", borderColor: "#218A4E" }}
-              >
-                UI
-              </Button>
-              <Button
-                variant="outlined"
-                style={{ color: "#218A4E", borderColor: "#218A4E" }}
-              >
-                UX
-              </Button>
+              {project.category?.map((category, index) => (
+                <Button
+                  key={index}
+                  variant="outlined"
+                  style={{
+                    color: "#FFFFFF",
+                    borderColor: "#218A4E",
+                    fontFamily: "Sintony, regular",
+                    fontSize: "0.75rem",
+                    padding: 4,
+                    borderRadius: "10px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {category}
+                </Button>
+              ))}
             </Box>
             <Typography
               variant="h5"
@@ -153,17 +174,51 @@ export default function Projects() {
             >
               {project.description}
             </Typography>
-            <Typography
-              variant="body2"
-              style={{
-                color: "#218A4E",
-                fontFamily: "Sintony, regular",
-                textAlign: "right",
+            <Box
+              sx={{
                 width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
             >
-              Read more &gt;&gt;&gt;
-            </Typography>
+              <Button
+                variant="contained"
+                href={project.repo}
+                style={{
+                  backgroundColor: "#218A4E",
+                  color: "#FFFFFF",
+                  fontFamily: "Sintony, regular",
+                  fontSize: "0.75rem",
+                  padding: "5px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  gap: "5px",
+                }}
+                href={project.repo}
+              >
+                <GitHubIcon />
+                See repo
+              </Button>
+              <Button
+                variant="contained"
+                href={project.repo}
+                style={{
+                  backgroundColor: "#218A4E",
+                  color: "#FFFFFF",
+                  fontFamily: "Sintony, regular",
+                  fontSize: "0.75rem",
+                  padding: "5px",
+                  borderRadius: "10px",
+                  display: "flex",
+                  gap: "5px",
+                }}
+                href={project.href}
+              >
+                <LanguageIcon />
+                Go to website
+              </Button>
+            </Box>
           </Link>
         ))}
       </Box>
