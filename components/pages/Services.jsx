@@ -19,7 +19,7 @@ export default function Services() {
       id="services"
     >
       <Typography
-        variant="h2"
+        variant="h3"
         style={{
           marginBottom: "20px",
           fontFamily: "Ubuntu, sans-serif",

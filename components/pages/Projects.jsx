@@ -75,7 +75,7 @@ export default function Projects() {
       id="projects"
     >
       <Typography
-        variant="h2"
+        variant="h3"
         style={{
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
@@ -178,7 +178,7 @@ export default function Projects() {
               {project.href && (
                 <Button
                   variant="contained"
-                  href={project.repo}
+                  href={project.href}
                   style={{
                     backgroundColor: "#218A4E",
                     color: "#FFFFFF",
@@ -189,7 +189,6 @@ export default function Projects() {
                     display: "flex",
                     gap: "5px",
                   }}
-                  href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -211,7 +210,6 @@ export default function Projects() {
                     display: "flex",
                     gap: "5px",
                   }}
-                  href={project.repo}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

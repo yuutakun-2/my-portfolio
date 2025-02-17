@@ -1,7 +1,60 @@
-import { Box, Typography, Divider, Container, IconButton } from "@mui/material";
-import { User, Envelope, Phone, MapPin, ArrowUp } from "@phosphor-icons/react";
-import SocialIcons from "./SocialIcons";
+import {
+  Box,
+  Typography,
+  Divider,
+  Container,
+  IconButton,
+  Button,
+} from "@mui/material";
+import {
+  Envelope,
+  Phone,
+  MapPin,
+  ArrowUp,
+  GithubLogo,
+  LinkedinLogo,
+  TelegramLogo,
+  FacebookLogo,
+  Dot,
+} from "@phosphor-icons/react";
 
+const socialLink = [
+  {
+    name: "yuutakun-2",
+    href: "github.com/yuutakun-2",
+    icon: <GithubLogo size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "Arkar Chan Myae",
+    href: "facebook.com/yuutakun2",
+    icon: <FacebookLogo size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "Arkar Chan Myae",
+    href: "linkedin.com/in/arkarchanmyae",
+    icon: <LinkedinLogo size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "yuuta_kun2",
+    href: "t.me/yuuta_kun2",
+    icon: <TelegramLogo size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "arkarchanmyae2@gmail.com",
+    href: "mailto:arkarchanmyae2@gmail.com",
+    icon: <Envelope size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "+959254064519",
+    href: "tel:+959254064519",
+    icon: <Phone size={20} style={{ color: "#218A4E" }} />,
+  },
+  {
+    name: "Myanmar",
+    href: "https://www.google.com/maps/place/Myanmar",
+    icon: <MapPin size={20} style={{ color: "#218A4E" }} />,
+  },
+];
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -57,14 +110,43 @@ export default function Footer() {
                 Building, coding, & growing one commit at a time.
               </Typography>
             </Box>
-            <Typography
-              variant="body1"
-              style={{ marginTop: "10px", fontFamily: "Sintony, sans-serif" }}
+            <Box
+              sx={{
+                display: "flex",
+                alignSelf: "start",
+              }}
             >
-              Arkar Chan Myae @ Yuuta
-            </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  border: "1px solid #218A4E",
+                  width: "fit-content",
+                  height: "fit-content",
+                  padding: "5px",
+                  paddingX: "20px",
+                  borderRadius: "10px",
+                  ":hover": {
+                    cursor: "pointer",
+                  },
+                }}
+                onClick={scrollToTop}
+              >
+                <IconButton>
+                  <ArrowUp size={24} style={{ color: "#FFFFFF" }} />
+                </IconButton>
+                Back to top
+              </Box>
+            </Box>
           </Box>
-          <Box style={{ flex: 1 }}>
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+            }}
+          >
             <Typography
               variant="h6"
               style={{
@@ -75,84 +157,32 @@ export default function Footer() {
             >
               Contact
             </Typography>
-            <Box style={{ marginTop: "10px" }}>
-              <Box display="flex" alignItems="center" marginBottom="10px">
-                <User
-                  size={20}
-                  style={{ marginRight: "10px", color: "#218A4E" }}
-                />
-                <Typography
-                  variant="body1"
-                  style={{ fontFamily: "Sintony, sans-serif" }}
-                >
-                  Arkar Chan Myae
-                </Typography>
-              </Box>
-              <Box display="flex" alignItems="center" marginBottom="10px">
-                <Envelope
-                  size={20}
-                  style={{ marginRight: "10px", color: "#218A4E" }}
-                />
-                <Typography
-                  variant="body1"
-                  style={{ fontFamily: "Sintony, sans-serif" }}
-                >
-                  arkarchanmyae2@gmail.com
-                </Typography>
-              </Box>
-              <Box display="flex" alignItems="center" marginBottom="10px">
-                <Phone
-                  size={20}
-                  style={{ marginRight: "10px", color: "#218A4E" }}
-                />
-                <Typography
-                  variant="body1"
-                  style={{ fontFamily: "Sintony, sans-serif" }}
-                >
-                  +959-2540-64519
-                </Typography>
-              </Box>
-              <Box display="flex" alignItems="center" marginBottom="10px">
-                <MapPin
-                  size={20}
-                  style={{ marginRight: "10px", color: "#218A4E" }}
-                />
-                <Typography
-                  variant="body1"
-                  style={{ fontFamily: "Sintony, sans-serif" }}
-                >
-                  Myanmar
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              alignSelf: "end",
-            }}
-          >
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                border: "1px solid #218A4E",
-                width: "fit-content",
-                height: "fit-content",
-                padding: "5px",
-                paddingX: "20px",
-                borderRadius: "10px",
-                ":hover": {
-                  cursor: "pointer",
-                },
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: "10px",
               }}
-              onClick={scrollToTop}
             >
-              <IconButton>
-                <ArrowUp size={24} style={{ color: "#FFFFFF" }} />
-              </IconButton>
-              Back to top
+              {socialLink.map((link, index) => (
+                <Button
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  style={{
+                    color: "#FFFFFF",
+                    display: "flex",
+                    gap: "8px",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    fontFamily: "Sintony, sans-serif",
+                  }}
+                >
+                  {link.icon}
+                  {link.name}
+                </Button>
+              ))}
             </Box>
           </Box>
         </Box>
@@ -160,11 +190,28 @@ export default function Footer() {
           display="flex"
           justifyContent="center"
           alignItems="center"
+          textAlign="center"
           gap={2}
           style={{ marginTop: "20px" }}
         >
           <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
-          <SocialIcons />
+          <Typography
+            variant="body1"
+            style={{
+              fontFamily: "Sintony, sans-serif",
+            }}
+          >
+            Arkar Chan Myae @ Yuuta
+          </Typography>
+          <Dot size={40} style={{ color: "#218A4E" }} />
+          <Typography
+            variant="body1"
+            style={{
+              fontFamily: "Sintony, sans-serif",
+            }}
+          >
+            © 2024 | All rights reserved
+          </Typography>
           <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
         </Box>
       </Container>

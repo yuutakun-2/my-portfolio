@@ -66,59 +66,39 @@ export default function Header() {
                 <span>&lt;yuuta&gt;</span>
               </Typography>
             </div>
-            <nav style={{ display: "flex", gap: "20px" }}>
-              <Button
-                className="nav-button"
-                color="inherit"
-                onClick={() => scrollToSection("projects")}
-                style={{
-                  fontFamily: "Sintony, sans-serif",
-                }}
-              >
-                Projects
-              </Button>
-              <Button
-                className="nav-button"
-                color="inherit"
-                onClick={() => scrollToSection("services")}
-                style={{
-                  fontFamily: "Sintony, sans-serif",
-                }}
-              >
-                Services
-              </Button>
-              <Button
-                className="nav-button"
-                color="inherit"
-                onClick={() => scrollToSection("footer")}
-                style={{
-                  fontFamily: "Sintony, sans-serif",
-                }}
-              >
-                Contact
-              </Button>
-            </nav>
           </div>
-          <Box>
-            <TextField
-              variant="outlined"
-              placeholder=""
-              size="small"
+          <nav style={{ display: "flex", gap: "20px" }}>
+            <Button
+              className="nav-button"
+              color="inherit"
+              onClick={() => scrollToSection("projects")}
               style={{
-                display: "flex",
-                alignItems: "center",
-                backgroundColor: "#D9D9D9",
-                borderRadius: "15px",
+                fontFamily: "Sintony, sans-serif",
               }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="center">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
+            >
+              Projects
+            </Button>
+            <Button
+              className="nav-button"
+              color="inherit"
+              onClick={() => scrollToSection("services")}
+              style={{
+                fontFamily: "Sintony, sans-serif",
               }}
-            />
-          </Box>
+            >
+              Services
+            </Button>
+            <Button
+              className="nav-button"
+              color="inherit"
+              onClick={() => scrollToSection("footer")}
+              style={{
+                fontFamily: "Sintony, sans-serif",
+              }}
+            >
+              Contact
+            </Button>
+          </nav>
         </Toolbar>
       </Container>
     </AppBar>

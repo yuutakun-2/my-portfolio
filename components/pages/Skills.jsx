@@ -18,7 +18,7 @@ export default function Skills() {
       id="skills"
     >
       <Typography
-        variant="h2"
+        variant="h3"
         style={{
           marginBottom: "40px",
           fontFamily: "Ubuntu, sans-serif",
@@ -40,8 +40,8 @@ export default function Skills() {
             backgroundColor: "#218A4E",
             borderRadius: "10px",
             padding: "20px",
-            height: "280px", // Set height to 280px
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Added shadow
+            height: "280px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
             flex: "1 1 200px", // Flex-grow, flex-shrink, and base width
             display: "flex",
             flexDirection: "column",
@@ -74,8 +74,8 @@ export default function Skills() {
             backgroundColor: "#218A4E",
             borderRadius: "10px",
             padding: "20px",
-            height: "280px", // Set height to 280px
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Added shadow
+            height: "280px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
             flex: "1 1 200px",
             display: "flex",
             flexDirection: "column",
@@ -106,8 +106,8 @@ export default function Skills() {
             backgroundColor: "#218A4E",
             borderRadius: "10px",
             padding: "20px",
-            height: "280px", // Set height to 280px
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Added shadow
+            height: "280px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
             flex: "1 1 200px",
             display: "flex",
             flexDirection: "column",
@@ -138,8 +138,8 @@ export default function Skills() {
             backgroundColor: "#218A4E",
             borderRadius: "10px",
             padding: "20px",
-            height: "280px", // Set height to 280px
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)", // Added shadow
+            height: "280px",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
             flex: "1 1 200px",
             display: "flex",
             flexDirection: "column",

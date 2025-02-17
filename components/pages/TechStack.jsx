@@ -14,7 +14,7 @@ export default function TechStack() {
       id="techstack"
     >
       <Typography
-        variant="h2"
+        variant="h3"
         style={{
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
@@ -121,7 +121,6 @@ export default function TechStack() {
           </svg>
         </Box>
         <StackIcon style={{ width: "80px", height: "auto" }} name="netlify" />
-        <StackIcon style={{ width: "80px", height: "auto" }} name="framer" />
       </Box>
     </Container>
   );
