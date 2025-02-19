@@ -52,6 +52,28 @@ const projects = [
     imgSrc: "../figma.png",
     category: ["Figma"],
   },
+  {
+    title: "Blog website",
+    description:
+      "A blog website with PHP and Laravel with authentication and authorization, post blogs with images and categories. Admin dashboard to manage posts and categories.",
+    repo: "https://github.com/yuutakun-2/techthoughts/",
+    imgSrc: "../figma.png",
+    category: ["PHP", "Laravel", "TailwindCSS"],
+  },
+  {
+    title: "Mobile payment app (ongoing)",
+    description:
+      "A mobile payment app built with React Native and Typescript. Currently working - real-time currency exchange calculator with live rates from api frankfurter.",
+    repo: "https://github.com/yuutakun-2/ypay",
+    imgSrc: "../ypay.png",
+    category: [
+      "Typescript",
+      "React Native",
+      "TailwindCSS",
+      "Expo router",
+      "React Query",
+    ],
+  },
 ];
 
 export default function Projects() {
@@ -66,7 +88,6 @@ export default function Projects() {
         borderTopRightRadius: "50px",
         borderBottomLeftRadius: "50px",
         borderBottomRightRadius: "50px",
-        // overflowX: "hidden",
         display: "flex",
         flexDirection: "column",
         gap: "40px",

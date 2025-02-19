@@ -35,13 +35,22 @@ export default function HeroSection() {
       <Box
         sx={{
           display: "flex",
-          flexWrap: "wrap-reverse",
+          flexDirection: { xs: "column-reverse", md: "row" },
+          gap: { xs: 0, md: 4 },
           justifyContent: "space-between",
           alignItems: "center",
+          textAlign: { xs: "center", md: "left" },
         }}
       >
         {/* First column */}
-        <Box display="flex" flexDirection="column" gap={4}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            width: { xs: "100%", md: "50%", lg: "50%" },
+          }}
+        >
           <Box>
             <Typography
               variant="h3"
@@ -71,11 +80,9 @@ export default function HeroSection() {
             className="default-text"
             style={{ fontWeight: "normal" }}
           >
-            Aspiring Full-Stack Developer
-            <br />
-            Fond in Tech Gadgets
-            <br />
-            Passionate about Tech that Improves Quality of Life
+            An aspiring full-stack developer passionate about technology and
+            innovations that enhance quality of life through user-friendly
+            digital solutions.
           </Typography>
           <Box display="flex" gap={4} marginY={2}>
             <CustomButton
@@ -90,14 +97,22 @@ export default function HeroSection() {
           </Box>
         </Box>
         {/* Second column */}
-        <Box display="flex" position="relative">
+        <Box
+          sx={{
+            display: "flex",
+            position: "relative",
+            flexDirection: "column",
+            gap: 4,
+            width: { xs: "100%", md: "50%", lg: "50%" },
+          }}
+        >
           <img
             src="../Arkar Chan Myae.png"
             alt="Profile photo"
             style={{
               borderRadius: "50px",
-              width: "auto",
-              height: "500px",
+              width: { xs: "100%", md: "50%", lg: "50%" },
+              height: { xs: "100%", md: "50%", lg: "50%" },
               zIndex: 1,
               opacity: fadeIn ? 1 : 0,
               transition: "opacity 0.5s ease",
@@ -108,10 +123,9 @@ export default function HeroSection() {
               width: "100%",
               height: "250px",
               position: "absolute",
-              bottom: 0,
               left: 0,
+              bottom: 0,
             }}
-            id="hero-background"
           >
             <Box
               style={{
