@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Box, Typography, Button, Container, Link } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -18,7 +19,7 @@ const projects = [
       "React app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
     imgSrc: "../react-app-iota-rose.vercel.app.png",
     href: "https://react-app-iota-rose.vercel.app/",
-    category: ["React", "React Query", "React Router", "MaterialUI"],
+    category: ["React", "React Query", "MaterialUI"],
     repo: "https://github.com/yuutakun-2/react-app",
   },
   {
@@ -26,13 +27,7 @@ const projects = [
     description:
       "Social media app that allows users to post, like, comment and delete posts, with authentication and authorization. Since it is deployed on Vercel, Websocket is not working here, but the app is fully functional.",
     imgSrc: ["../native-app.png"],
-    category: [
-      "React Native",
-      "shadcn/ui",
-      "TailwindCSS",
-      "React Query",
-      "Expo Router",
-    ],
+    category: ["React Native", "shadcn/ui", "TailwindCSS", "React Query"],
     repo: "https://github.com/yuutakun-2/native-app",
   },
   {
@@ -70,13 +65,87 @@ const projects = [
       "Typescript",
       "React Native",
       "TailwindCSS",
-      "Expo router",
+      "Expo Router",
+      "React Query",
+    ],
+  },
+];
+
+const categories = [
+  {
+    title: "frontend",
+    value: [
+      "React",
+      "MaterialUI",
+      "shadcn/ui",
+      "TailwindCSS",
+      "NextJS",
+      "RadixUI",
+    ],
+  },
+  {
+    title: "backend",
+    value: [
+      "ExpressJS",
+      "NodeJS",
+      "NextJS",
+      "PostgreSQL",
+      "mySQL",
+      "SQLite",
+      "JWT",
+      "Websocket",
+      "PHP",
+      "Laravel",
+      "React Router",
+      "React Query",
+    ],
+  },
+  {
+    title: "Mobile",
+    value: ["React Native", "Expo Router"],
+  },
+  {
+    title: "UI/UX Design",
+    value: ["Figma"],
+  },
+  {
+    title: "All",
+    value: [
+      "React",
+      "ExpressJS",
+      "React Native",
+      "Figma",
+      "PHP",
+      "Laravel",
+      "PostgreSQL",
+      "mySQL",
+      "SQLite",
+      "JWT",
+      "Websocket",
+      "TailwindCSS",
+      "MaterialUI",
+      "shadcn/ui",
+      "NextJS",
+      "RadixUI",
+      "Expo Router",
+      "React Router",
       "React Query",
     ],
   },
 ];
 
 export default function Projects() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredProjects, setFilteredProjects] = useState(projects);
+
+  const handleCategoryClick = (categoryValues) => {
+    setSelectedCategory(categoryValues);
+    const filtered = projects.filter((project) =>
+      project.category.some((cat) => categoryValues.includes(cat))
+    );
+    setFilteredProjects(filtered);
+  };
+
   return (
     <Container
       sx={{
@@ -90,7 +159,7 @@ export default function Projects() {
         borderBottomRightRadius: "50px",
         display: "flex",
         flexDirection: "column",
-        gap: "40px",
+        // gap: "40px",
         scrollMarginTop: "80px",
       }}
       id="projects"
@@ -106,31 +175,55 @@ export default function Projects() {
         &lt;<span style={{ color: "#FFFFFF" }}> Projects </span>&gt;
       </Typography>
       <Box
-        display="flex"
-        flexWrap="nowrap"
-        justifyContent="flex-start" // Changed to flex-start to ensure the first card is fully visible
         sx={{
-          overflowX: "auto",
-          overflowY: "hidden",
-          // Hide scrollbar for Chrome, Safari and Opera:
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-          // Hide scrollbar for Firefox:
-          scrollbarWidth: "none",
-          // Hide scrollbar for IE, Edge:
-          "-ms-overflow-style": "none",
+          display: "flex",
+          justifyContent: "center",
+          gap: 2,
+          my: 4,
+          flexWrap: "wrap",
         }}
       >
-        {projects.map((project, index) => (
+        {categories.map((categoryObj, index) => {
+          const categoryKey = categoryObj.title;
+          const categoryValues = categoryObj.value;
+          const isActive = selectedCategory === categoryValues;
+          return (
+            <Box>
+              <Button
+                key={index}
+                variant="outlined"
+                onClick={() => handleCategoryClick(categoryValues)}
+                sx={{
+                  color: "#FFFFFF",
+                  backgroundColor: isActive ? "#218A4E" : "transparent",
+                  borderColor: "#218A4E",
+                  fontFamily: "Sintony, regular",
+                  fontSize: "0.75rem",
+                  paddingX: 2,
+                  paddingY: 1,
+                  borderRadius: "10px",
+                  ":hover": {
+                    backgroundColor: "#218A4E",
+                    color: "#FFFFFF",
+                  },
+                }}
+              >
+                {categoryKey}
+              </Button>
+            </Box>
+          );
+        })}
+      </Box>
+      <Box display="flex" flexWrap="wrap" justifyContent="center" gap={4}>
+        {filteredProjects.map((project, index) => (
           <Box
             key={index}
-            style={{
-              height: "480px",
+            sx={{
+              minHeight: "540px",
+              width: "360px",
               border: "2px solid #218A4E",
               borderRadius: "10px",
-              padding: "15px",
-              margin: "10px",
+              padding: "10px",
               backgroundColor: "#282F37",
               display: "flex",
               flexDirection: "column",
@@ -142,13 +235,14 @@ export default function Projects() {
             <img
               src={project.imgSrc}
               alt={`Card ${index + 1}`}
-              style={{ width: "300px", height: "175px", borderRadius: "10px" }}
+              style={{ width: "full", height: "175px", borderRadius: "8px" }}
             />
             <Box
               display="flex"
               justifyContent="flex-start"
               width="100%"
               sx={{ gap: 1 }}
+              flexWrap="wrap"
             >
               {project.category?.map((category, index) => (
                 <Button
@@ -162,6 +256,7 @@ export default function Projects() {
                     padding: 4,
                     borderRadius: "10px",
                     whiteSpace: "nowrap",
+                    cursor: "default",
                   }}
                 >
                   {category}
@@ -172,7 +267,7 @@ export default function Projects() {
               variant="h5"
               style={{
                 color: "#218A4E",
-                fontFamily: "Ubuntu, bold", // Changed to Ubuntu bold
+                fontFamily: "Ubuntu, bold",
                 textAlign: "center",
               }}
             >
@@ -196,27 +291,6 @@ export default function Projects() {
                 alignItems: "center",
               }}
             >
-              {project.href && (
-                <Button
-                  variant="contained"
-                  href={project.href}
-                  style={{
-                    backgroundColor: "#218A4E",
-                    color: "#FFFFFF",
-                    fontFamily: "Sintony, regular",
-                    fontSize: "0.75rem",
-                    padding: "5px",
-                    borderRadius: "10px",
-                    display: "flex",
-                    gap: "5px",
-                  }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LanguageIcon />
-                  Go to website
-                </Button>
-              )}
               {project.repo && (
                 <Button
                   variant="contained"
@@ -236,6 +310,27 @@ export default function Projects() {
                 >
                   <GitHubIcon />
                   See repo
+                </Button>
+              )}
+              {project.href && (
+                <Button
+                  variant="contained"
+                  href={project.href}
+                  style={{
+                    backgroundColor: "#218A4E",
+                    color: "#FFFFFF",
+                    fontFamily: "Sintony, regular",
+                    fontSize: "0.75rem",
+                    padding: "5px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    gap: "5px",
+                  }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LanguageIcon />
+                  Go to website
                 </Button>
               )}
             </Box>
