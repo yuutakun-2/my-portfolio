@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -18,6 +19,13 @@ export default function HeroSection() {
     }, 100); // Delay for animation effect
     return () => clearTimeout(timer);
   }, []);
+
+  const handleDownload = () => {
+    setIsDownloading(true);
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 2000); // Delay for download effect
+  };
 
   return (
     <Container
@@ -95,9 +103,9 @@ export default function HeroSection() {
               color="default"
               href="../Resume.pdf"
               download
-              target="_blank"
+              onClick={handleDownload}
             >
-              Download my resume
+              {isDownloading ? "Downloading..." : "Download Resume"}
             </CustomButton>
           </Box>
         </Box>
