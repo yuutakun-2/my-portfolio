@@ -91,8 +91,13 @@ export default function HeroSection() {
             >
               Hire Me!
             </CustomButton>
-            <CustomButton color="default" href="../Resume.pdf" download>
-              My resume
+            <CustomButton
+              color="default"
+              href="../Resume.pdf"
+              download
+              target="_blank"
+            >
+              Download my resume
             </CustomButton>
           </Box>
         </Box>

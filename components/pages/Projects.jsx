@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Typography, Button, Container, Link } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -137,6 +137,7 @@ const categories = [
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [filteredProjects, setFilteredProjects] = useState(projects);
+  const [animate, setAnimate] = useState(false);
 
   const handleCategoryClick = (categoryValues) => {
     setSelectedCategory(categoryValues);
@@ -144,7 +145,15 @@ export default function Projects() {
       project.category.some((cat) => categoryValues.includes(cat))
     );
     setFilteredProjects(filtered);
+    setAnimate(true);
   };
+
+  useEffect(() => {
+    if (animate) {
+      const timer = setTimeout(() => setAnimate(false), 500);
+      return () => clearTimeout(timer);
+    }
+  }, [animate]);
 
   return (
     <Container
@@ -215,6 +224,24 @@ export default function Projects() {
         })}
       </Box>
       <Box display="flex" flexWrap="wrap" justifyContent="center" gap={4}>
+        <style>
+          {`
+            .fade-in {
+              animation: fadeIn 0.5s ease-in-out;
+            }
+            
+            @keyframes fadeIn {
+              0% {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+          `}
+        </style>
         {filteredProjects.map((project, index) => (
           <Box
             key={index}
@@ -231,6 +258,7 @@ export default function Projects() {
               justifyContent: "space-between",
               textDecoration: "none",
             }}
+            className={animate ? "fade-in" : ""}
           >
             <img
               src={project.imgSrc}

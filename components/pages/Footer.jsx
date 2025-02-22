@@ -80,7 +80,7 @@ export default function Footer() {
         <Box
           style={{
             display: "flex",
-            // width: "100%",
+            gap: "40px",
           }}
         >
           <Box
@@ -124,7 +124,7 @@ export default function Footer() {
                   width: "fit-content",
                   height: "fit-content",
                   padding: "5px",
-                  paddingX: "20px",
+                  paddingX: "10px",
                   borderRadius: "10px",
                   ":hover": {
                     cursor: "pointer",
@@ -162,7 +162,7 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "wrap",
-                gap: "10px",
+                gap: "4px",
               }}
             >
               {socialLink.map((link, index) => (
@@ -177,10 +177,14 @@ export default function Footer() {
                     alignItems: "center",
                     justifyContent: "flex-start",
                     fontFamily: "Sintony, sans-serif",
+                    whiteSpace: "normal",
+                    wordBreak: "break-word",
+                    textAlign: "left",
+                    maxWidth: "100%",
                   }}
                 >
-                  {link.icon}
-                  {link.name}
+                  <span style={{ flexShrink: 0 }}>{link.icon}</span>{" "}
+                  <span style={{ flexGrow: 1 }}>{link.name}</span>{" "}
                 </Button>
               ))}
             </Box>
