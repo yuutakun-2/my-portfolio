@@ -29,7 +29,11 @@ export default function HeroSection() {
 
   return (
     <Container
-      style={{ backgroundColor: "#282F37", padding: "40px" }}
+      sx={{
+        backgroundColor: "#282F37",
+        padding: "40px",
+        scrollMarginTop: "80px",
+      }}
       maxWidth="lg"
       id="herosection"
     >

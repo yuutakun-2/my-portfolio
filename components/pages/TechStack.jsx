@@ -121,6 +121,8 @@ export default function TechStack() {
           </svg>
         </Box>
         <StackIcon style={{ width: "80px", height: "auto" }} name="netlify" />
+        <StackIcon style={{ width: "80px", height: "auto" }} name="linux" />
+        <StackIcon style={{ width: "80px", height: "auto" }} name="wordpress" />
       </Box>
     </Container>
   );

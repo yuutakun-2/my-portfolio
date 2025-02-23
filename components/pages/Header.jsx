@@ -62,9 +62,25 @@ export default function Header() {
         <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
             <div className="logo">
-              <Typography variant="h6" className="logo">
-                <span>&lt;yuuta&gt;</span>
-              </Typography>
+              <Button
+                className="nav-button"
+                color="inherit"
+                onClick={() => scrollToSection("herosection")}
+                style={{
+                  fontFamily: "Sintony, sans-serif",
+                }}
+              >
+                <Typography
+                  style={{
+                    color: "#218A4E",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    textTransform: "lowercase",
+                  }}
+                >
+                  &lt; yuuta &gt;
+                </Typography>
+              </Button>
             </div>
           </div>
           <nav style={{ display: "flex", gap: "20px" }}>
@@ -77,16 +93,6 @@ export default function Header() {
               }}
             >
               Projects
-            </Button>
-            <Button
-              className="nav-button"
-              color="inherit"
-              onClick={() => scrollToSection("services")}
-              style={{
-                fontFamily: "Sintony, sans-serif",
-              }}
-            >
-              Services
             </Button>
             <Button
               className="nav-button"

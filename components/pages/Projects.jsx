@@ -135,12 +135,12 @@ const categories = [
 ];
 
 export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [animate, setAnimate] = useState(false);
 
-  const handleCategoryClick = (categoryValues) => {
-    setSelectedCategory(categoryValues);
+  const handleCategoryClick = (categoryKey, categoryValues) => {
+    setSelectedCategory(categoryKey);
     const filtered = projects.filter((project) =>
       project.category.some((cat) => categoryValues.includes(cat))
     );
@@ -195,13 +195,13 @@ export default function Projects() {
         {categories.map((categoryObj, index) => {
           const categoryKey = categoryObj.title;
           const categoryValues = categoryObj.value;
-          const isActive = selectedCategory === categoryValues;
+          const isActive = selectedCategory === categoryKey;
           return (
             <Box>
               <Button
                 key={index}
                 variant="outlined"
-                onClick={() => handleCategoryClick(categoryValues)}
+                onClick={() => handleCategoryClick(categoryKey, categoryValues)}
                 sx={{
                   color: "#FFFFFF",
                   backgroundColor: isActive ? "#218A4E" : "transparent",

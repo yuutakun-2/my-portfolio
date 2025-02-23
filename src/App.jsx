@@ -1,6 +1,6 @@
 import Header from "../components/pages/Header";
 import HeroSection from "../components/pages/HeroSection";
-import Services from "../components/pages/Services";
+import AboutMe from "../components/pages/AboutMe";
 import Skills from "../components/pages/Skills";
 import Projects from "../components/pages/Projects";
 import TechStack from "../components/pages/TechStack";
@@ -19,11 +19,11 @@ export default function App() {
       <div style={{ margin: "16px 0" }} />
       <HeroSection />
       <div style={{ margin: "16px 0" }} />
-      <Projects />
+      <AboutMe />
       <div style={{ margin: "16px 0" }} />
       <TechStack />
       <div style={{ margin: "16px 0" }} />
-      <Services />
+      <Projects />
       <div style={{ margin: "16px 0" }} />
       <Skills />
       <div style={{ margin: "16px 0" }} />
