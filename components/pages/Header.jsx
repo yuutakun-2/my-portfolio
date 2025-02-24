@@ -87,6 +87,16 @@ export default function Header() {
             <Button
               className="nav-button"
               color="inherit"
+              onClick={() => scrollToSection("aboutme")}
+              style={{
+                fontFamily: "Sintony, sans-serif",
+              }}
+            >
+              About me
+            </Button>
+            <Button
+              className="nav-button"
+              color="inherit"
               onClick={() => scrollToSection("projects")}
               style={{
                 fontFamily: "Sintony, sans-serif",

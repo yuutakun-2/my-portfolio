@@ -160,17 +160,17 @@ export default function Projects() {
       sx={{
         backgroundColor: "#000000",
         color: "#FFFFFF",
-        padding: "40px",
         textAlign: "center",
         borderTopLeftRadius: "50px",
         borderTopRightRadius: "50px",
         borderBottomLeftRadius: "50px",
         borderBottomRightRadius: "50px",
         display: "flex",
+        padding: "40px",
         flexDirection: "column",
-        // gap: "40px",
         scrollMarginTop: "80px",
       }}
+      maxWidth="lg"
       id="projects"
     >
       <Typography
@@ -197,29 +197,27 @@ export default function Projects() {
           const categoryValues = categoryObj.value;
           const isActive = selectedCategory === categoryKey;
           return (
-            <Box>
-              <Button
-                key={index}
-                variant="outlined"
-                onClick={() => handleCategoryClick(categoryKey, categoryValues)}
-                sx={{
+            <Button
+              key={index}
+              variant="outlined"
+              onClick={() => handleCategoryClick(categoryKey, categoryValues)}
+              sx={{
+                color: "#FFFFFF",
+                backgroundColor: isActive ? "#218A4E" : "transparent",
+                borderColor: "#218A4E",
+                fontFamily: "Sintony, regular",
+                fontSize: "0.75rem",
+                paddingX: 2,
+                paddingY: 1,
+                borderRadius: "10px",
+                ":hover": {
+                  backgroundColor: "#218A4E",
                   color: "#FFFFFF",
-                  backgroundColor: isActive ? "#218A4E" : "transparent",
-                  borderColor: "#218A4E",
-                  fontFamily: "Sintony, regular",
-                  fontSize: "0.75rem",
-                  paddingX: 2,
-                  paddingY: 1,
-                  borderRadius: "10px",
-                  ":hover": {
-                    backgroundColor: "#218A4E",
-                    color: "#FFFFFF",
-                  },
-                }}
-              >
-                {categoryKey}
-              </Button>
-            </Box>
+                },
+              }}
+            >
+              {categoryKey}
+            </Button>
           );
         })}
       </Box>
