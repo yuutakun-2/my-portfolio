@@ -25,22 +25,22 @@ const currentYear = getYear(new Date());
 const socialLink = [
   {
     name: "yuutakun-2",
-    href: "github.com/yuutakun-2",
+    href: "https://www.github.com/yuutakun-2",
     icon: <GithubLogo size={20} style={{ color: "#218A4E" }} />,
   },
   {
     name: "Arkar Chan Myae",
-    href: "facebook.com/yuutakun2",
+    href: "https://www.facebook.com/yuutakun2",
     icon: <FacebookLogo size={20} style={{ color: "#218A4E" }} />,
   },
   {
     name: "Arkar Chan Myae",
-    href: "linkedin.com/in/arkarchanmyae",
+    href: "https://www.linkedin.com/in/arkarchanmyae",
     icon: <LinkedinLogo size={20} style={{ color: "#218A4E" }} />,
   },
   {
     name: "yuuta_kun2",
-    href: "t.me/yuuta_kun2",
+    href: "https://t.me/yuuta_kun2",
     icon: <TelegramLogo size={20} style={{ color: "#218A4E" }} />,
   },
   {
