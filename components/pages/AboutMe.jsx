@@ -138,6 +138,10 @@ export default function AboutMe() {
               <Box
                 sx={{
                   width: "100%",
+                  backgroundColor: "#218A4E",
+                  paddingX: 2,
+                  paddingY: 1,
+                  borderRadius: "20px",
                 }}
               >
                 <Box
@@ -145,8 +149,8 @@ export default function AboutMe() {
                     display: "flex",
                   }}
                 >
-                  <Button onClick={() => handleCollapseButton(index)}>
-                    <ArrowDropDownIcon color="success" fontSize="large" />
+                  <Button onClick={() => handleCollapseButton(index)} color="#FFFFFF">
+                    <ArrowDropDownIcon fontSize="large" />
                   </Button>
                   <Typography
                     variant="h5"

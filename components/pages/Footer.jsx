@@ -18,6 +18,10 @@ import {
   Dot,
 } from "@phosphor-icons/react";
 
+import {getYear} from 'date-fns';
+
+const currentYear = getYear(new Date());
+
 const socialLink = [
   {
     name: "yuutakun-2",
@@ -214,7 +218,7 @@ export default function Footer() {
               fontFamily: "Sintony, sans-serif",
             }}
           >
-            © 2024 | All rights reserved
+            © {currentYear} | All rights reserved
           </Typography>
           <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
         </Box>
