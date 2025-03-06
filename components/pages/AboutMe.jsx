@@ -84,7 +84,7 @@ export default function AboutMe() {
               textAlign: "start",
             }}
           >
-            Aspiring full-stack developer with a strong foundation in Web
+            Aspiring full-stack developer & UI/UX Designer with a strong foundation in Web
             Development, UI/UX, SEO, Sales & Marketing, and Communication
             Skills. Passionate about problem-solving, which led me to this
             career and has made me enjoy every step of the journey.

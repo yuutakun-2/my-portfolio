@@ -7,6 +7,15 @@ import "../Appear.css"
 
 const projects = [
   {
+    title: "TechSuggest",
+    description:
+      "TechSuggest is an Google Gemini AI-powered Messaging bot for quick, personalized gadget recommendations, together with Facebook API for Messenger integration.",
+    href: "https://www.messenger.com/t/569761872883181/",
+    repo: "https://github.com/FutureMindsDev/TechSuggest.git",
+    imgSrc: "../Facebook - Gemini.png",
+    category: ["ExpressJS"],
+  },
+  {
     title: "Movie World",
     description:
       "Movie database with tmdb api that shows the latest movies and other genres. User can also search by the movie name. Built with next js.",
