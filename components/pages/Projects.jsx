@@ -59,11 +59,11 @@ const projects = [
     category: ["Figma"],
   },
   {
-    title: "Blog website",
+    title: "Tech Thoughts",
     description:
       "A blog website with PHP and Laravel with authentication and authorization, post blogs with images and categories. Admin dashboard to manage posts and categories.",
     repo: "https://github.com/yuutakun-2/techthoughts/",
-    imgSrc: "../figma.png",
+    imgSrc: "../Tech Thoughts.png",
     category: ["PHP", "Laravel", "TailwindCSS"],
   },
   {
