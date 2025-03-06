@@ -53,7 +53,7 @@ export default function AboutMe() {
       className="block"
     >
       <Typography
-        variant="h3"
+        variant="h4"
         style={{
           marginBottom: "20px",
           fontFamily: "Ubuntu, sans-serif",

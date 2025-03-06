@@ -21,7 +21,7 @@ export default function Skills() {
       className="block"
     >
       <Typography
-        variant="h3"
+        variant="h4"
         style={{
           marginBottom: "40px",
           fontFamily: "Ubuntu, sans-serif",

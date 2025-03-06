@@ -17,7 +17,7 @@ export default function TechStack() {
       className="block"
     >
       <Typography
-        variant="h3"
+        variant="h4"
         style={{
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
