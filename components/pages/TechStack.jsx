@@ -1,6 +1,8 @@
 import { Container, Box, Typography } from "@mui/material";
 import StackIcon from "tech-stack-icons";
 
+import "../Appear.css"
+
 export default function TechStack() {
   return (
     <Container
@@ -12,6 +14,7 @@ export default function TechStack() {
         scrollMarginTop: "80px",
       }}
       id="techstack"
+      className="block"
     >
       <Typography
         variant="h3"

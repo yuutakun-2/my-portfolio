@@ -6,6 +6,8 @@ import {
   LightbulbFilament,
 } from "@phosphor-icons/react";
 
+import "../Appear.css"
+
 export default function Skills() {
   return (
     <Container
@@ -16,6 +18,7 @@ export default function Skills() {
         textAlign: "center",
       }}
       id="skills"
+      className="block"
     >
       <Typography
         variant="h3"

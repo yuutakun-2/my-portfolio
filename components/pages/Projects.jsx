@@ -3,6 +3,8 @@ import { Box, Typography, Button, Container, Link } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
+import "../Appear.css"
+
 const projects = [
   {
     title: "Movie World",
@@ -172,6 +174,7 @@ export default function Projects() {
       }}
       maxWidth="lg"
       id="projects"
+      className="block"
     >
       <Typography
         variant="h3"

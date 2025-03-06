@@ -2,6 +2,8 @@ import { Box, Typography, Container, Button } from "@mui/material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
+import "../Appear.css"
+
 export default function AboutMe() {
   const educations = [
     {
@@ -48,6 +50,7 @@ export default function AboutMe() {
       }}
       maxWidth="lg"
       id="aboutme"
+      className="block"
     >
       <Typography
         variant="h3"
