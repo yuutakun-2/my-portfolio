@@ -17,7 +17,7 @@ const projects = [
   {
     title: "TechSuggest",
     description:
-      "TechSuggest is an Google Gemini AI-powered Messaging bot for quick, personalized gadget recommendations, together with Facebook API for Messenger integration.",
+      "TechSuggest is a collaborative work of FutureMindsDev team on Google Gemini AI-powered Messaging bot for quick, personalized gadget recommendations, together with Facebook API for Messenger integration.",
     href: "https://www.messenger.com/t/569761872883181/",
     repo: "https://github.com/FutureMindsDev/TechSuggest.git",
     imgSrc: "../Facebook - Gemini.png",
@@ -256,8 +256,8 @@ export default function Projects() {
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             spaceBetween={50}
             slidesPerView={1}
+            autoHeight={true}
             navigation
-            scrollbar={{ draggable: true }}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log('slide change')}
           >
