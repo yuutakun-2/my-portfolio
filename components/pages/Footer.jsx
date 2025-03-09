@@ -18,7 +18,7 @@ import {
   Dot,
 } from "@phosphor-icons/react";
 
-import {getYear} from 'date-fns';
+import { getYear } from "date-fns";
 
 const currentYear = getYear(new Date());
 
@@ -77,22 +77,26 @@ export default function Footer() {
         alignItems: "center",
         borderTopLeftRadius: "50px",
         borderTopRightRadius: "50px",
+        scrollMarginTop: "80px",
       }}
       id="footer"
     >
       <Container maxWidth="lg">
+        {/* First row */}
         <Box
-          style={{
+          sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             gap: "40px",
           }}
         >
+          {/* First row: Left column */}
           <Box
             sx={{
-              flex: 1,
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
+              gap: "20px",
             }}
           >
             <Box>
@@ -127,7 +131,6 @@ export default function Footer() {
                   border: "1px solid #218A4E",
                   width: "fit-content",
                   height: "fit-content",
-                  padding: "5px",
                   paddingX: "10px",
                   borderRadius: "10px",
                   ":hover": {
@@ -143,9 +146,10 @@ export default function Footer() {
               </Box>
             </Box>
           </Box>
+          {/* First row: Right column */}
           <Box
             sx={{
-              flex: 1,
+              // flex: 1,
               display: "flex",
               flexDirection: "column",
               gap: "10px",
@@ -179,7 +183,7 @@ export default function Footer() {
                     display: "flex",
                     gap: "8px",
                     alignItems: "center",
-                    justifyContent: "flex-start",
+                    justifyContent: "center",
                     fontFamily: "Sintony, sans-serif",
                     whiteSpace: "normal",
                     wordBreak: "break-word",
@@ -187,13 +191,16 @@ export default function Footer() {
                     maxWidth: "100%",
                   }}
                 >
-                  <span style={{ flexShrink: 0 }}>{link.icon}</span>{" "}
-                  <span style={{ flexGrow: 1 }}>{link.name}</span>{" "}
+                  <Typography sx={{ flexShrink: 0 }}>{link.icon}</Typography>{" "}
+                  <Typography sx={{ flexGrow: 1, textTransform: "none" }}>
+                    {link.name}
+                  </Typography>{" "}
                 </Button>
               ))}
             </Box>
           </Box>
         </Box>
+        {/* Second row */}
         <Box
           display="flex"
           justifyContent="center"

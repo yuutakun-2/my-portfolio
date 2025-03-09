@@ -3,15 +3,15 @@ import { Box, Typography, Button, Container, Link } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-import "../Appear.css"
+import "../Appear.css";
 
 const projects = [
   {
@@ -251,29 +251,49 @@ export default function Projects() {
             }
           `}
         </style>
-        <div style={{ maxWidth: '100%' }}>
+        <div style={{ maxWidth: "120%" }}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
+            // spaceBetween={50}
             slidesPerView={1}
-            autoHeight={true}
+            // autoHeight={true}
             navigation
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
           >
             {filteredProjects.map((project, index) => (
               <SwiperSlide key={index}>
-                <Box sx={{display: "flex", justifyContent: "center", alignItems: "flex-start", gap: 4, flexDirection: { xs: "column", md: "row"}, paddingX: "15%"}}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    gap: 4,
+                    flexDirection: { xs: "column", md: "row" },
+                    paddingX: "12%",
+                  }}
+                >
                   {/* Left column */}
                   <Box sx={{ flex: 1, width: { xs: "100%", md: "50%" } }}>
                     <img
                       src={project.imgSrc}
                       alt={`Card ${index + 1}`}
-                      style={{ borderRadius: "8px", objectFit: "contain", width: "100%" }}
+                      style={{
+                        borderRadius: "8px",
+                        objectFit: "contain",
+                        width: "100%",
+                      }}
                     />
                   </Box>
                   {/* Right column */}
-                  <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 2, flex: 1, width: { xs: "100%", md: "50%" } }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      gap: 2,
+                      flex: 1,
+                      width: { xs: "100%", md: "50%" },
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       style={{
@@ -291,21 +311,26 @@ export default function Projects() {
                         gap: 2,
                         alignItems: "center",
                         flexWrap: "wrap",
-                      }}>
+                      }}
+                    >
                       {project.category?.map((category, index) => (
-                        <Button key={index} variant="outlined" style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          color: "#FFFFFF",
-                          borderColor: "#218A4E",
-                          fontFamily: "Sintony, regular",
-                          fontSize: "0.75rem",
-                          padding: 4,
-                          marginX: 4,
-                          borderRadius: "10px",
-                          cursor: "default",
-                        }}>
+                        <Button
+                          key={index}
+                          variant="outlined"
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            color: "#FFFFFF",
+                            borderColor: "#218A4E",
+                            fontFamily: "Sintony, regular",
+                            fontSize: "0.75rem",
+                            padding: 4,
+                            marginX: 4,
+                            borderRadius: "10px",
+                            cursor: "default",
+                          }}
+                        >
                           {category}
                         </Button>
                       ))}
@@ -376,148 +401,6 @@ export default function Projects() {
               </SwiperSlide>
             ))}
           </Swiper>
-          {/* <Box display="flex" flexWrap="wrap" justifyContent="center" gap={4}>
-            <style>
-              {`
-                .fade-in {
-                  animation: fadeIn 0.5s ease-in-out;
-                }
-                
-                @keyframes fadeIn {
-                  0% {
-                    opacity: 0;
-                    transform: translateY(20px);
-                  }
-                  100% {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-              `}
-            </style>
-            {filteredProjects.map((project, index) => (
-              <Box
-                key={index}
-                sx={{
-                  minHeight: "540px",
-                  width: "360px",
-                  border: "2px solid #218A4E",
-                  borderRadius: "10px",
-                  padding: "10px",
-                  backgroundColor: "#282F37",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  textDecoration: "none",
-                }}
-                className={animate ? "fade-in" : ""}
-              >
-                <img
-                  src={project.imgSrc}
-                  alt={`Card ${index + 1}`}
-                  style={{ width: "full", height: "175px", borderRadius: "8px" }}
-                />
-                <Box
-                  display="flex"
-                  justifyContent="flex-start"
-                  width="100%"
-                  sx={{ gap: 1 }}
-                  flexWrap="wrap"
-                >
-                  {project.category?.map((category, index) => (
-                    <Button
-                      key={index}
-                      variant="outlined"
-                      style={{
-                        color: "#FFFFFF",
-                        borderColor: "#218A4E",
-                        fontFamily: "Sintony, regular",
-                        fontSize: "0.75rem",
-                        padding: 4,
-                        borderRadius: "10px",
-                        whiteSpace: "nowrap",
-                        cursor: "default",
-                      }}
-                    >
-                      {category}
-                    </Button>
-                  ))}
-                </Box>
-                <Typography
-                  variant="h5"
-                  style={{
-                    color: "#218A4E",
-                    fontFamily: "Ubuntu, bold",
-                    textAlign: "center",
-                  }}
-                >
-                  {project.title}
-                </Typography>
-                <Typography
-                  variant="body1"
-                  style={{
-                    color: "#FFFFFF",
-                    fontFamily: "Sintony, regular",
-                    textAlign: "center",
-                  }}
-                >
-                  {project.description}
-                </Typography>
-                <Box
-                  sx={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  {project.repo && (
-                    <Button
-                      variant="contained"
-                      href={project.repo}
-                      style={{
-                        backgroundColor: "#218A4E",
-                        color: "#FFFFFF",
-                        fontFamily: "Sintony, regular",
-                        fontSize: "0.75rem",
-                        padding: "5px",
-                        borderRadius: "10px",
-                        display: "flex",
-                        gap: "5px",
-                      }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <GitHubIcon />
-                      See repo
-                    </Button>
-                  )}
-                  {project.href && (
-                    <Button
-                      variant="contained"
-                      href={project.href}
-                      style={{
-                        backgroundColor: "#218A4E",
-                        color: "#FFFFFF",
-                        fontFamily: "Sintony, regular",
-                        fontSize: "0.75rem",
-                        padding: "5px",
-                        borderRadius: "10px",
-                        display: "flex",
-                        gap: "5px",
-                      }}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <LanguageIcon />
-                      Go to website
-                    </Button>
-                  )}
-                </Box>
-              </Box>
-            ))}
-          </Box> */}
         </div>
       </Box>
     </Container>
