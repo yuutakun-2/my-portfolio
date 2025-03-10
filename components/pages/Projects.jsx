@@ -251,7 +251,7 @@ export default function Projects() {
             }
           `}
         </style>
-        <div style={{ maxWidth: "120%" }}>
+        <div style={{ maxWidth: "100%" }}>
           <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             // spaceBetween={50}

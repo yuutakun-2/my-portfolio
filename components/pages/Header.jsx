@@ -2,21 +2,83 @@ import {
   AppBar,
   Toolbar,
   Button,
-  TextField,
-  InputAdornment,
   Box,
   Typography,
   Container,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+
+import { useState } from "react";
+
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+
+const navigations = [
+  {
+    name: "aboutme",
+    desc: "About Me",
+  },
+  {
+    name: "projects",
+    desc: "Projects",
+  },
+  {
+    name: "footer",
+    desc: "Contact",
+  },
+];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+  const DrawerList = (
+    <Box
+      sx={{
+        width: "40vw",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
+      <List sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        {navigations.map((navigation, index) => {
+          return (
+            <ListItem key={index} disablePadding>
+              <ListItemButton
+                className="nav-button"
+                color="inherit"
+                onClick={() => {
+                  scrollToSection(navigation.name);
+                }}
+                style={{
+                  fontFamily: "Sintony, sans-serif",
+                }}
+              >
+                {navigation.desc}
+              </ListItemButton>
+            </ListItem>
+          );
+        })}
+      </List>
+    </Box>
+  );
 
   return (
     <AppBar
@@ -84,26 +146,50 @@ export default function Header() {
             </div>
           </div>
           <nav style={{ display: "flex", gap: "20px" }}>
-            <Button
-              className="nav-button"
-              color="inherit"
-              onClick={() => scrollToSection("projects")}
-              style={{
-                fontFamily: "Sintony, sans-serif",
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: 4,
               }}
             >
-              Projects
-            </Button>
-            <Button
-              className="nav-button"
-              color="inherit"
-              onClick={() => scrollToSection("footer")}
-              style={{
-                fontFamily: "Sintony, sans-serif",
+              {navigations.map((navigation, index) => {
+                return (
+                  <Button
+                    key={index}
+                    className="nav-button"
+                    color="inherit"
+                    onClick={() => scrollToSection(navigation.name)}
+                    style={{
+                      fontFamily: "Sintony, sans-serif",
+                    }}
+                  >
+                    {navigation.desc}
+                  </Button>
+                );
+              })}
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "block", md: "none" },
               }}
             >
-              Contact
-            </Button>
+              <Button onClick={toggleDrawer(true)}>
+                <MenuIcon style={{ color: "#fff" }} />
+              </Button>
+              <Drawer
+                open={open}
+                anchor="right"
+                onClose={toggleDrawer(false)}
+                PaperProps={{
+                  sx: {
+                    backgroundColor: "#282F37",
+                    color: "#FFFFFF",
+                  },
+                }}
+              >
+                {DrawerList}
+              </Drawer>
+            </Box>
           </nav>
         </Toolbar>
       </Container>
