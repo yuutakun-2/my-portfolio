@@ -5,6 +5,8 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 import { useState } from "react";
 
+import "../Appear.css";
+
 const educations = [
   {
     title: "University of the People, Bachelor of Computer Science",

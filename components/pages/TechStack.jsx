@@ -1,6 +1,8 @@
 import { Container, Box, Typography } from "@mui/material";
 import StackIcon from "tech-stack-icons";
 
+import "../Appear.css";
+
 const techstacks = [
   {
     title: "Fundamental",

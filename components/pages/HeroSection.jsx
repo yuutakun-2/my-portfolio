@@ -2,6 +2,8 @@ import { Box, Typography, Container } from "@mui/material";
 import CustomButton from "../Button";
 import { useEffect, useState } from "react";
 
+import "../Appear.css";
+
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
