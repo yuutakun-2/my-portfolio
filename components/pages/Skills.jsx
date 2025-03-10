@@ -6,8 +6,6 @@ import {
   LightbulbFilament,
 } from "@phosphor-icons/react";
 
-import "../Appear.css"
-
 export default function Skills() {
   return (
     <Container

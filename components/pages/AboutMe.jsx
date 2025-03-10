@@ -5,38 +5,42 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 import { useState } from "react";
 
+const educations = [
+  {
+    title: "University of the People, Bachelor of Computer Science",
+    duration: "Feb 2025 - Ongoing",
+    description:
+      "Focusing on fundamental programming, algorithms, and software development. Building a Strong Technical Foundation through coursework in data structures, web development, and database management, and problem-solving skills with a curriculum that emphasizes computational thinking, coding, and real- world applications.",
+  },
+  {
+    title: "University of Medicine (1) Yangon, M.B.,B.S.",
+    duration: "Dec 2015 - Mar 2020",
+    description:
+      "Specialized in Medicine, Surgery, Obstetrics & Gynecology, Pediatrics. Left university at Final Year Part (2) due to country instability.",
+  },
+  {
+    title: "SEAMEO CHAT, Diploma in English Communication Skills",
+    duration: "Nov 2017",
+    description:
+      "Focusing on language proficiency, literature, and academic writing. Building Strong Communication Skills through coursework in grammar, composition, and critical analysis.",
+  },
+];
+
 export default function AboutMe() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [collapsedStates, setCollapsedStates] = useState(
+    Array(educations.length).fill(false)
+  );
 
-  const educations = [
-    {
-      title: "University of the People, Bachelor of Computer Science",
-      duration: "Feb 2025 - Ongoing",
-      description:
-        "Focusing on fundamental programming, algorithms, and software development. Building a Strong Technical Foundation through coursework in data structures, web development, and database management, and problem-solving skills with a curriculum that emphasizes computational thinking, coding, and real- world applications.",
-    },
-    {
-      title: "University of Medicine (1) Yangon, M.B.,B.S.",
-      duration: "Dec 2015 - Mar 2020",
-      description:
-        "Specialized in Medicine, Surgery, Obstetrics & Gynecology, Pediatrics. Left university at Final Year Part (2) due to country instability.",
-    },
-    {
-      title: "SEAMEO CHAT, Diploma in English Communication Skills",
-      duration: "Nov 2017",
-      description:
-        "Focusing on language proficiency, literature, and academic writing. Building Strong Communication Skills through coursework in grammar, composition, and critical analysis.",
-    },
-  ];
+  const handleCollapseButton = (index) => {
+    const newCollapsedStates = [...collapsedStates];
+    newCollapsedStates[index] = !newCollapsedStates[index];
+    setCollapsedStates(newCollapsedStates);
 
-  const handleCollapseButton = (textBlock) => {
-    const text = document.getElementById(textBlock);
+    const text = document.getElementById(index);
     if (text.style.display === "none") {
       text.style.display = "block";
-      setIsCollapsed(true);
     } else {
       text.style.display = "none";
-      setIsCollapsed(false);
     }
   };
 
@@ -67,7 +71,7 @@ export default function AboutMe() {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        &lt;<Typography style={{ color: "#FFFFFF" }}> About me </Typography>&gt;{" "}
+        &lt;<span style={{ color: "#FFFFFF" }}> About me </span>&gt;{" "}
       </Typography>
       <Box
         sx={{
@@ -161,7 +165,7 @@ export default function AboutMe() {
                     onClick={() => handleCollapseButton(index)}
                     color="#FFFFFF"
                   >
-                    {isCollapsed ? (
+                    {collapsedStates[index] ? (
                       <ArrowDropUpIcon fontSize="large" />
                     ) : (
                       <ArrowDropDownIcon fontSize="large" />
