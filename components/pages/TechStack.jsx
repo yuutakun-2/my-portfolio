@@ -144,9 +144,9 @@ export default function TechStack() {
                           gradientTransform="rotate(90 -90.486 64.634) scale(9.2712)"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#95d7f4" offset="0" />
-                          <stop stop-color="#0f7fcc" offset=".92" />
-                          <stop stop-color="#0f7fcc" offset="1" />
+                          <stop stopColor="#95d7f4" offset="0" />
+                          <stop stopColor="#0f7fcc" offset=".92" />
+                          <stop stopColor="#0f7fcc" offset="1" />
                         </linearGradient>
                       </defs>
                       <path
@@ -198,21 +198,21 @@ export default function TechStack() {
                     >
                       <path
                         fill="#12FFF7"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M0 4.828C0 2.16 2.172 0 4.851 0h18.436c2.679 0 4.85 2.161 4.85 4.828V20.43c0 2.758-3.507 3.955-5.208 1.778l-5.318-6.809v8.256c0 2.4-1.955 4.345-4.367 4.345H4.851C2.172 28 0 25.839 0 23.172zm4.851-.966a.97.97 0 0 0-.97.966v18.344c0 .534.435.966.97.966h8.539c.268 0 .34-.216.34-.483v-11.07c0-2.76 3.507-3.956 5.208-1.779l5.319 6.809V4.828c0-.534.05-.966-.485-.966z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                       <path
                         fill="url(#a)"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M0 4.828C0 2.16 2.172 0 4.851 0h18.436c2.679 0 4.85 2.161 4.85 4.828V20.43c0 2.758-3.507 3.955-5.208 1.778l-5.318-6.809v8.256c0 2.4-1.955 4.345-4.367 4.345H4.851C2.172 28 0 25.839 0 23.172zm4.851-.966a.97.97 0 0 0-.97.966v18.344c0 .534.435.966.97.966h8.539c.268 0 .34-.216.34-.483v-11.07c0-2.76 3.507-3.956 5.208-1.779l5.319 6.809V4.828c0-.534.05-.966-.485-.966z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                       <path
                         fill="url(#b)"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M0 4.828C0 2.16 2.172 0 4.851 0h18.436c2.679 0 4.85 2.161 4.85 4.828V20.43c0 2.758-3.507 3.955-5.208 1.778l-5.318-6.809v8.256c0 2.4-1.955 4.345-4.367 4.345H4.851C2.172 28 0 25.839 0 23.172zm4.851-.966a.97.97 0 0 0-.97.966v18.344c0 .534.435.966.97.966h8.539c.268 0 .34-.216.34-.483v-11.07c0-2.76 3.507-3.956 5.208-1.779l5.319 6.809V4.828c0-.534.05-.966-.485-.966z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                       <path
                         fill="#B9FFB3"
@@ -231,11 +231,11 @@ export default function TechStack() {
                           y2="-.12"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#B9FFB3" />
+                          <stop stopColor="#B9FFB3" />
                           <stop
                             offset="1"
-                            stop-color="#B9FFB3"
-                            stop-opacity="0"
+                            stopColor="#B9FFB3"
+                            stopOpacity="0"
                           />
                         </linearGradient>
                         <linearGradient
@@ -246,11 +246,11 @@ export default function TechStack() {
                           y2="21.476"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#1A1A1A" stop-opacity=".9" />
+                          <stop stopColor="#1A1A1A" stopOpacity=".9" />
                           <stop
                             offset="1"
-                            stop-color="#1A1A1A"
-                            stop-opacity="0"
+                            stopColor="#1A1A1A"
+                            stopOpacity="0"
                           />
                         </linearGradient>
                       </defs>

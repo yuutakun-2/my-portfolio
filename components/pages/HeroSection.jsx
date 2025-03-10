@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Button } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import CustomButton from "../Button";
 import { useEffect, useState } from "react";
 
@@ -92,9 +92,12 @@ export default function HeroSection() {
             className="default-text"
             style={{ fontWeight: "normal" }}
           >
-            An aspiring full-stack developer & UI/UX Designer<br/>
-            Passionate about technology and innovations<br/>
-            that enhance quality of life<br/>
+            An aspiring full-stack developer & UI/UX Designer
+            <br />
+            Passionate about technology and innovations
+            <br />
+            that enhance quality of life
+            <br />
             through user-friendly digital solutions.
           </Typography>
           <Box display="flex" gap={4} marginY={2}>

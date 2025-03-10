@@ -1,10 +1,13 @@
 import { Box, Typography, Container, Button } from "@mui/material";
+
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-import "../Appear.css"
+import { useState } from "react";
 
 export default function AboutMe() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   const educations = [
     {
       title: "University of the People, Bachelor of Computer Science",
@@ -30,8 +33,10 @@ export default function AboutMe() {
     const text = document.getElementById(textBlock);
     if (text.style.display === "none") {
       text.style.display = "block";
+      setIsCollapsed(true);
     } else {
       text.style.display = "none";
+      setIsCollapsed(false);
     }
   };
 
@@ -54,7 +59,7 @@ export default function AboutMe() {
     >
       <Typography
         variant="h4"
-        style={{
+        sx={{
           marginBottom: "20px",
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
@@ -62,7 +67,7 @@ export default function AboutMe() {
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        &lt;<span style={{ color: "#FFFFFF" }}> About me </span>&gt;{" "}
+        &lt;<Typography style={{ color: "#FFFFFF" }}> About me </Typography>&gt;{" "}
       </Typography>
       <Box
         sx={{
@@ -84,10 +89,10 @@ export default function AboutMe() {
               textAlign: "start",
             }}
           >
-            Aspiring full-stack developer & UI/UX Designer with a strong foundation in Web
-            Development, UI/UX, SEO, Sales & Marketing, and Communication
-            Skills. Passionate about problem-solving, which led me to this
-            career and has made me enjoy every step of the journey.
+            Aspiring full-stack developer & UI/UX Designer with a strong
+            foundation in Web Development, UI/UX, SEO, Sales & Marketing, and
+            Communication Skills. Passionate about problem-solving, which led me
+            to this career and has made me enjoy every step of the journey.
             <br />
             Driven to create intuitive and visually appealing digital
             experiences, with a strong passion for effectively explaining and
@@ -152,8 +157,15 @@ export default function AboutMe() {
                     display: "flex",
                   }}
                 >
-                  <Button onClick={() => handleCollapseButton(index)} color="#FFFFFF">
-                    <ArrowDropDownIcon fontSize="large" />
+                  <Button
+                    onClick={() => handleCollapseButton(index)}
+                    color="#FFFFFF"
+                  >
+                    {isCollapsed ? (
+                      <ArrowDropUpIcon fontSize="large" />
+                    ) : (
+                      <ArrowDropDownIcon fontSize="large" />
+                    )}
                   </Button>
                   <Typography
                     variant="h5"

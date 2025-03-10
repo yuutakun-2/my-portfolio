@@ -13,7 +13,6 @@ export default function App() {
         minHeight: "100vh",
         backgroundColor: "#282F37",
       }}
-      maxWidth="lg"
     >
       <Header />
       <div style={{ margin: "16px 0" }} />
