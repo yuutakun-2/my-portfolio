@@ -4,6 +4,8 @@ import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { useApp } from "../../src/AppProvider";
+import { useTheme } from "@mui/styles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -157,6 +159,8 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [animate, setAnimate] = useState(false);
+  const { isDark } = useApp();
+  const theme = useTheme();
 
   const handleCategoryClick = (categoryKey, categoryValues) => {
     setSelectedCategory(categoryKey);
@@ -177,8 +181,8 @@ export default function Projects() {
   return (
     <Container
       sx={{
-        backgroundColor: "#000000",
-        color: "#FFFFFF",
+        backgroundColor: isDark ? "dark.darker" : "light.darker",
+        color: isDark ? "dark.text" : "light.text",
         textAlign: "center",
         borderTopLeftRadius: "50px",
         borderTopRightRadius: "50px",
@@ -195,20 +199,22 @@ export default function Projects() {
     >
       <Typography
         variant="h4"
-        style={{
+        sx={{
+          marginBottom: "20px",
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
-          color: "#218A4E",
+          color: isDark ? "dark.main" : "light.main",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        &lt;<span style={{ color: "#FFFFFF" }}> Projects </span>&gt;
+        &lt; Projects &gt;
       </Typography>
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           gap: 2,
-          my: 4,
+          my: 2,
           flexWrap: "wrap",
         }}
       >
@@ -222,17 +228,21 @@ export default function Projects() {
               variant="outlined"
               onClick={() => handleCategoryClick(categoryKey, categoryValues)}
               sx={{
-                color: "#FFFFFF",
-                backgroundColor: isActive ? "#218A4E" : "transparent",
-                borderColor: "#218A4E",
+                color: isDark ? "dark.text" : "light.text",
+                backgroundColor: isActive
+                  ? isDark
+                    ? "dark.main"
+                    : "light.main"
+                  : "transparent",
+                borderColor: isDark ? "dark.main" : "light.main",
                 fontFamily: "Sintony, regular",
                 fontSize: "0.75rem",
                 paddingX: 2,
                 paddingY: 1,
                 borderRadius: "10px",
                 ":hover": {
-                  backgroundColor: "#218A4E",
-                  color: "#FFFFFF",
+                  backgroundColor: isDark ? "dark.main" : "light.main",
+                  color: isDark ? "dark.text" : "light.text",
                 },
               }}
             >
@@ -242,22 +252,17 @@ export default function Projects() {
         })}
       </Box>
       {/* Projects section */}
-      <Box display="flex" justifyContent="center">
-        <style>
-          {`
-            .swiper-button-prev,
-            .swiper-button-next {
-              color: #218A4E;
-            }
-          `}
-        </style>
-        <div style={{ maxWidth: "100%" }}>
+      <Box display="flex" justifyContent="center" my={2}>
+        <Box style={{ maxWidth: "100%" }}>
           <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y]}
-            // spaceBetween={50}
+            modules={[Navigation]}
             slidesPerView={1}
-            // autoHeight={true}
             navigation
+            style={{
+              "--swiper-navigation-color": isDark
+                ? theme.palette.dark.main
+                : theme.palette.light.main,
+            }}
           >
             {filteredProjects.map((project, index) => (
               <SwiperSlide key={index}>
@@ -297,7 +302,7 @@ export default function Projects() {
                     <Typography
                       variant="h5"
                       style={{
-                        color: "#218A4E",
+                        color: isDark ? "dark.text" : "light.text",
                         fontFamily: "Ubuntu, bold",
                         textAlign: "start",
                       }}
@@ -317,16 +322,16 @@ export default function Projects() {
                         <Button
                           key={index}
                           variant="outlined"
-                          style={{
+                          sx={{
+                            color: isDark ? "dark.text" : "light.text",
                             display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            color: "#FFFFFF",
-                            borderColor: "#218A4E",
+                            borderColor: isDark ? "dark.main" : "light.main",
                             fontFamily: "Sintony, regular",
                             fontSize: "0.75rem",
-                            padding: 4,
-                            marginX: 4,
+                            paddingX: 2,
+                            paddingY: 1,
                             borderRadius: "10px",
                             cursor: "default",
                           }}
@@ -337,8 +342,8 @@ export default function Projects() {
                     </Box>
                     <Typography
                       variant="body1"
-                      style={{
-                        color: "#FFFFFF",
+                      sx={{
+                        color: isDark ? "dark.text" : "light.text",
                         fontFamily: "Sintony, regular",
                         textAlign: "start",
                       }}
@@ -357,9 +362,11 @@ export default function Projects() {
                         <Button
                           variant="contained"
                           href={project.repo}
-                          style={{
-                            backgroundColor: "#218A4E",
-                            color: "#FFFFFF",
+                          sx={{
+                            backgroundColor: isDark
+                              ? "dark.main"
+                              : "light.main",
+                            color: isDark ? "dark.text" : "light.text",
                             fontFamily: "Sintony, regular",
                             fontSize: "0.75rem",
                             padding: "5px",
@@ -378,9 +385,11 @@ export default function Projects() {
                         <Button
                           variant="contained"
                           href={project.href}
-                          style={{
-                            backgroundColor: "#218A4E",
-                            color: "#FFFFFF",
+                          sx={{
+                            backgroundColor: isDark
+                              ? "dark.main"
+                              : "light.main",
+                            color: isDark ? "dark.text" : "light.text",
                             fontFamily: "Sintony, regular",
                             fontSize: "0.75rem",
                             padding: "5px",
@@ -401,7 +410,7 @@ export default function Projects() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </Box>
       </Box>
     </Container>
   );

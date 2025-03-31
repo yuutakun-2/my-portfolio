@@ -4,6 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 import { useState } from "react";
+import { useApp } from "../../src/AppProvider";
 
 import "../Appear.css";
 
@@ -29,6 +30,7 @@ const educations = [
 ];
 
 export default function AboutMe() {
+  const { isDark } = useApp();
   const [collapsedStates, setCollapsedStates] = useState(
     Array(educations.length).fill(false)
   );
@@ -37,20 +39,13 @@ export default function AboutMe() {
     const newCollapsedStates = [...collapsedStates];
     newCollapsedStates[index] = !newCollapsedStates[index];
     setCollapsedStates(newCollapsedStates);
-
-    const text = document.getElementById(index);
-    if (text.style.display === "none") {
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
   };
 
   return (
     <Container
       sx={{
-        backgroundColor: "#000000",
-        color: "#FFFFFF",
+        backgroundColor: isDark ? "dark.darker" : "light.darker",
+        color: isDark ? "dark.text" : "light.text",
         textAlign: "center",
         borderTopLeftRadius: "50px",
         borderTopRightRadius: "50px",
@@ -69,11 +64,11 @@ export default function AboutMe() {
           marginBottom: "20px",
           fontFamily: "Ubuntu, sans-serif",
           fontWeight: "bold",
-          color: "#218A4E",
+          color: isDark ? "dark.main" : "light.main",
           textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
         }}
       >
-        &lt;<span style={{ color: "#FFFFFF" }}> About me </span>&gt;{" "}
+        &lt; About me &gt;
       </Typography>
       <Box
         sx={{
@@ -93,6 +88,7 @@ export default function AboutMe() {
               px: 4,
               pt: 2,
               textAlign: "start",
+              color: isDark ? "dark.whiteText" : "light.whiteText",
             }}
           >
             Aspiring full-stack developer & UI/UX Designer with a strong
@@ -124,7 +120,7 @@ export default function AboutMe() {
             sx={{
               fontFamily: "Ubuntu, sans-serif",
               fontWeight: "bold",
-              color: "#218A4E",
+              color: isDark ? "dark.main" : "light.main",
               textAlign: "right",
               pt: 2,
             }}
@@ -152,7 +148,7 @@ export default function AboutMe() {
               <Box
                 sx={{
                   width: "100%",
-                  backgroundColor: "#218A4E",
+                  backgroundColor: isDark ? "dark.main" : "light.main",
                   paddingX: 2,
                   paddingY: 1,
                   borderRadius: "20px",
@@ -165,7 +161,7 @@ export default function AboutMe() {
                 >
                   <Button
                     onClick={() => handleCollapseButton(index)}
-                    color="#FFFFFF"
+                    color={isDark ? "dark.text" : "light.text"}
                   >
                     {collapsedStates[index] ? (
                       <ArrowDropUpIcon fontSize="large" />
@@ -184,26 +180,24 @@ export default function AboutMe() {
                     {item.title}
                   </Typography>
                 </Box>
-                <Box
-                  id={index}
-                  className={"education-text"}
-                  style={{ display: "none" }}
-                >
-                  <Typography
-                    variant="h6"
-                    textAlign={"right"}
-                    sx={{
-                      fontFamily: "Ubuntu, sans-serif",
-                      fontWeight: "bold",
-                      color: "#AAAAAA",
-                    }}
-                  >
-                    {item.duration}
-                  </Typography>
-                  <Typography sx={{ textAlign: "right" }}>
-                    {item.description}
-                  </Typography>
-                </Box>
+                {collapsedStates[index] && (
+                  <Box className={"education-text"}>
+                    <Typography
+                      variant="h6"
+                      textAlign={"right"}
+                      sx={{
+                        fontFamily: "Ubuntu, sans-serif",
+                        fontWeight: "bold",
+                        color: "#AAAAAA",
+                      }}
+                    >
+                      {item.duration}
+                    </Typography>
+                    <Typography sx={{ textAlign: "right" }}>
+                      {item.description}
+                    </Typography>
+                  </Box>
+                )}
               </Box>
             </Box>
           ))}

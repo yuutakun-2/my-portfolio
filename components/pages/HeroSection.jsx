@@ -1,12 +1,13 @@
-import { Box, Typography, Container } from "@mui/material";
-import CustomButton from "../Button";
+import { Box, Typography, Container, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import "../Appear.css";
+import { useApp } from "../../src/AppProvider";
 
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
+  const { isDark } = useApp();
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -32,20 +33,13 @@ export default function HeroSection() {
   return (
     <Container
       sx={{
-        backgroundColor: "#282F37",
+        backgroundColor: isDark ? "dark.background" : "light.background",
         padding: "40px",
         scrollMarginTop: "80px",
       }}
       maxWidth="lg"
       id="herosection"
     >
-      <style>
-        {`
-          .default-text {
-            color: #DFDFDF; /* Default white for text */
-          }
-        `}
-      </style>
       <Box
         sx={{
           display: "flex",
@@ -68,10 +62,10 @@ export default function HeroSection() {
           <Box>
             <Typography
               variant="h3"
-              style={{
+              sx={{
                 fontFamily: "Ubuntu, sans-serif",
                 fontWeight: "bold",
-                color: "#FFFFFF",
+                color: isDark ? "dark.text" : "light.text",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >
@@ -79,10 +73,10 @@ export default function HeroSection() {
             </Typography>
             <Typography
               variant="h3"
-              style={{
+              sx={{
                 fontFamily: "Ubuntu, sans-serif",
                 fontWeight: "bold",
-                color: "#218A4E",
+                color: isDark ? "dark.main" : "light.main",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >
@@ -92,7 +86,10 @@ export default function HeroSection() {
           <Typography
             variant="h6"
             className="default-text"
-            style={{ fontWeight: "normal" }}
+            sx={{
+              fontWeight: "normal",
+              color: isDark ? "dark.text" : "light.text",
+            }}
           >
             An aspiring full-stack developer & UI/UX Designer
             <br />
@@ -103,20 +100,40 @@ export default function HeroSection() {
             through user-friendly digital solutions.
           </Typography>
           <Box display="flex" gap={4} marginY={2}>
-            <CustomButton
-              color="green"
+            <Button
               onClick={() => scrollToSection("footer")}
+              sx={{
+                borderRadius: "20px",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                fontFamily: "Ubuntu, bold",
+                textTransform: "capitalize",
+                padding: "10px 30px",
+                backgroundColor: isDark ? "dark.main" : "light.main",
+                color: isDark ? "dark.text" : "light.text",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
             >
               Hire Me!
-            </CustomButton>
-            <CustomButton
-              color="default"
+            </Button>
+            <Button
               href="../Resume.pdf"
               download
               onClick={handleDownload}
+              sx={{
+                borderRadius: "20px",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+                fontFamily: "Ubuntu, bold",
+                textTransform: "capitalize",
+                padding: "10px 30px",
+                backgroundColor: isDark ? "dark.text" : "light.text",
+                color: isDark ? "dark.textBlack" : "light.textBlack",
+                fontSize: "20px",
+                fontWeight: "bold",
+              }}
             >
               {isDownloading ? "Downloading..." : "Download Resume"}
-            </CustomButton>
+            </Button>
           </Box>
         </Box>
         {/* Second column */}
@@ -142,7 +159,7 @@ export default function HeroSection() {
             }}
           />
           <Box
-            style={{
+            sx={{
               width: "100%",
               height: "250px",
               position: "absolute",
@@ -151,8 +168,8 @@ export default function HeroSection() {
             }}
           >
             <Box
-              style={{
-                backgroundColor: "#218A4E",
+              sx={{
+                backgroundColor: isDark ? "dark.main" : "light.main",
                 borderRadius: "30px",
                 width: "100%",
                 height: "100%",

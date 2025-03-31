@@ -5,15 +5,19 @@ import {
   Box,
   Typography,
   Container,
+  IconButton,
 } from "@mui/material";
 
 import { useState } from "react";
+import { useApp } from "../../src/AppProvider";
 
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import LightbulbIcon from "@mui/icons-material/Lightbulb";
+import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 
 const navigations = [
   {
@@ -32,6 +36,7 @@ const navigations = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { isDark, setIsDark } = useApp();
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -81,8 +86,8 @@ export default function Header() {
   return (
     <AppBar
       position="sticky"
-      style={{
-        backgroundColor: "#282F37",
+      sx={{
+        backgroundColor: isDark ? "dark.main" : "light.main",
         marginBottom: "10px",
         boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
       }}
@@ -111,28 +116,29 @@ export default function Header() {
             .nav-button:hover::after {
               transform: scaleX(1);
             }
-            .logo {
-              color: #218A4E;
-              fontFamily: 'Ubuntu', sans-serif;
-              fontSize: '24px';
-              fontWeight: '700';
-            }
           `}
         </style>
-        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            <div className="logo">
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            <Box
+              className="logo"
+              sx={{
+                fontFamily: "Ubuntu, sans-serif",
+                fontSize: "24px",
+                fontWeight: "700",
+              }}
+            >
               <Button
                 className="nav-button"
                 color="inherit"
                 onClick={() => scrollToSection("herosection")}
-                style={{
+                sx={{
                   fontFamily: "Sintony, sans-serif",
                 }}
               >
                 <Typography
-                  style={{
-                    color: "#218A4E",
+                  sx={{
+                    color: isDark ? "dark.text" : "light.text",
                     fontWeight: "bold",
                     fontSize: "18px",
                     textTransform: "lowercase",
@@ -141,9 +147,9 @@ export default function Header() {
                   &lt; yuuta &gt;
                 </Typography>
               </Button>
-            </div>
-          </div>
-          <nav style={{ display: "flex", gap: "20px" }}>
+            </Box>
+          </Box>
+          <nav sx={{ display: "flex", gap: "20px" }}>
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -157,7 +163,7 @@ export default function Header() {
                     className="nav-button"
                     color="inherit"
                     onClick={() => scrollToSection(navigation.name)}
-                    style={{
+                    sx={{
                       fontFamily: "Sintony, sans-serif",
                     }}
                   >
@@ -165,6 +171,21 @@ export default function Header() {
                   </Button>
                 );
               })}
+              <Box>
+                {isDark ? (
+                  <IconButton onClick={() => setIsDark(false)}>
+                    <LightbulbIcon
+                      sx={{ color: isDark ? "dark.text" : "light.text" }}
+                    />
+                  </IconButton>
+                ) : (
+                  <IconButton onClick={() => setIsDark(true)}>
+                    <LightbulbOutlinedIcon
+                      sx={{ color: isDark ? "dark.text" : "light.text" }}
+                    />
+                  </IconButton>
+                )}
+              </Box>
             </Box>
             <Box
               sx={{
@@ -172,7 +193,7 @@ export default function Header() {
               }}
             >
               <Button onClick={toggleDrawer(true)}>
-                <MenuIcon style={{ color: "#fff" }} />
+                <MenuIcon sx={{ color: "#fff" }} />
               </Button>
               <Drawer
                 open={open}

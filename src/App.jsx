@@ -6,27 +6,31 @@ import Projects from "../components/pages/Projects";
 import TechStack from "../components/pages/TechStack";
 import Footer from "../components/pages/Footer";
 
+import { useApp } from "./AppProvider";
+import { Box } from "@mui/material";
+
 export default function App() {
+  const { isDark } = useApp();
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         minHeight: "100vh",
-        backgroundColor: "#282F37",
+        backgroundColor: isDark ? "dark.background" : "light.background",
       }}
     >
       <Header />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <HeroSection />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <AboutMe />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <TechStack />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <Projects />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <Skills />
-      <div style={{ margin: "16px 0" }} />
+      <Box sx={{ margin: "16px 0" }} />
       <Footer />
-    </div>
+    </Box>
   );
 }

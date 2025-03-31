@@ -18,6 +18,7 @@ import {
   Dot,
 } from "@phosphor-icons/react";
 
+import { useApp } from "../../src/AppProvider";
 import { getYear } from "date-fns";
 
 const currentYear = getYear(new Date());
@@ -26,40 +27,41 @@ const socialLink = [
   {
     name: "yuutakun-2",
     href: "https://www.github.com/yuutakun-2",
-    icon: <GithubLogo size={20} style={{ color: "#218A4E" }} />,
+    icon: <GithubLogo size={20} />,
   },
   {
     name: "Arkar Chan Myae",
     href: "https://www.facebook.com/yuutakun2",
-    icon: <FacebookLogo size={20} style={{ color: "#218A4E" }} />,
+    icon: <FacebookLogo size={20} />,
   },
   {
     name: "Arkar Chan Myae",
     href: "https://www.linkedin.com/in/arkarchanmyae",
-    icon: <LinkedinLogo size={20} style={{ color: "#218A4E" }} />,
+    icon: <LinkedinLogo size={20} />,
   },
   {
     name: "yuuta_kun2",
     href: "https://t.me/yuuta_kun2",
-    icon: <TelegramLogo size={20} style={{ color: "#218A4E" }} />,
+    icon: <TelegramLogo size={20} />,
   },
   {
     name: "arkarchanmyae2@gmail.com",
     href: "mailto:arkarchanmyae2@gmail.com",
-    icon: <Envelope size={20} style={{ color: "#218A4E" }} />,
+    icon: <Envelope size={20} />,
   },
   {
     name: "+959254064519",
     href: "tel:+959254064519",
-    icon: <Phone size={20} style={{ color: "#218A4E" }} />,
+    icon: <Phone size={20} />,
   },
   {
     name: "Myanmar",
     href: "https://www.google.com/maps/place/Myanmar",
-    icon: <MapPin size={20} style={{ color: "#218A4E" }} />,
+    icon: <MapPin size={20} />,
   },
 ];
 export default function Footer() {
+  const { isDark } = useApp();
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -69,7 +71,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        backgroundColor: "#000000",
+        backgroundColor: isDark ? "dark.main" : "light.main",
         color: "#FFFFFF",
         padding: "40px",
         display: "flex",
@@ -103,13 +105,13 @@ export default function Footer() {
               <Typography
                 variant="h6"
                 className="logo"
-                style={{
+                sx={{
                   fontFamily: "Ubuntu, sans-serif",
                   fontWeight: "700",
-                  color: "#218A4E",
+                  color: isDark ? "dark.text" : "light.text",
                 }}
               >
-                &lt;yuuta&gt;
+                &lt; yuuta &gt;
               </Typography>
               <Typography
                 variant="body1"
@@ -128,10 +130,12 @@ export default function Footer() {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  border: "1px solid #218A4E",
+                  border: "1px solid",
+                  borderColor: isDark ? "dark.text" : "light.text",
                   width: "fit-content",
                   height: "fit-content",
-                  paddingX: "10px",
+                  padding: "10px",
+                  gap: 1,
                   borderRadius: "10px",
                   ":hover": {
                     cursor: "pointer",
@@ -139,9 +143,7 @@ export default function Footer() {
                 }}
                 onClick={scrollToTop}
               >
-                <IconButton>
-                  <ArrowUp size={24} style={{ color: "#FFFFFF" }} />
-                </IconButton>
+                <ArrowUp size={24} color="white" />
                 Back to top
               </Box>
             </Box>
@@ -157,10 +159,10 @@ export default function Footer() {
           >
             <Typography
               variant="h6"
-              style={{
+              sx={{
                 fontFamily: "Ubuntu, sans-serif",
                 fontWeight: "700",
-                color: "#218A4E",
+                color: isDark ? "dark.text" : "light.text",
               }}
             >
               Contact
@@ -170,7 +172,7 @@ export default function Footer() {
                 display: "flex",
                 flexDirection: "row",
                 flexWrap: "wrap",
-                gap: "4px",
+                gap: "16px",
               }}
             >
               {socialLink.map((link, index) => (
@@ -178,8 +180,8 @@ export default function Footer() {
                   key={index}
                   href={link.href}
                   target="_blank"
-                  style={{
-                    color: "#FFFFFF",
+                  sx={{
+                    color: isDark ? "dark.text" : "light.text",
                     display: "flex",
                     gap: "8px",
                     alignItems: "center",
@@ -189,9 +191,19 @@ export default function Footer() {
                     wordBreak: "break-word",
                     textAlign: "left",
                     maxWidth: "100%",
+                    border: "1px solid",
                   }}
                 >
-                  <Typography sx={{ flexShrink: 0 }}>{link.icon}</Typography>{" "}
+                  <Typography
+                    sx={{
+                      color: isDark ? "dark.text" : "light.text",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {link.icon}
+                  </Typography>{" "}
                   <Typography sx={{ flexGrow: 1, textTransform: "none" }}>
                     {link.name}
                   </Typography>{" "}
@@ -209,7 +221,13 @@ export default function Footer() {
           gap={2}
           style={{ marginTop: "20px" }}
         >
-          <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
+          <Divider
+            sx={{
+              flex: 1,
+              backgroundColor: isDark ? "dark.darker" : "light.darker",
+              height: 1,
+            }}
+          />
           <Typography
             variant="body1"
             style={{
@@ -218,7 +236,7 @@ export default function Footer() {
           >
             Arkar Chan Myae @ Yuuta
           </Typography>
-          <Dot size={40} style={{ color: "#218A4E" }} />
+          <Dot size={40} color={isDark ? "dark.darker" : "light.darker"} />
           <Typography
             variant="body1"
             style={{
@@ -227,7 +245,13 @@ export default function Footer() {
           >
             © {currentYear} | All rights reserved
           </Typography>
-          <Divider style={{ flex: 1, backgroundColor: "#218A4E", height: 1 }} />
+          <Divider
+            sx={{
+              flex: 1,
+              backgroundColor: isDark ? "dark.darker" : "light.darker",
+              height: 1,
+            }}
+          />
         </Box>
       </Container>
     </Box>
