@@ -10,15 +10,12 @@ const techstacks = [
     icon: ["html5", "css3", "js", "typescript", "php"],
   },
   {
+    title: "Design",
+    icon: ["figma"],
+  },
+  {
     title: "Frontend",
-    icon: [
-      "reactjs",
-      "nextjs",
-      "tailwindcss",
-      "reactquery",
-      "reactrouter",
-      "wordpress",
-    ],
+    icon: ["reactjs", "nextjs", "tailwindcss", "reactrouter", "wordpress"],
   },
   {
     title: "Backend",
@@ -29,8 +26,8 @@ const techstacks = [
     icon: ["mysql", "postgresql", "sqlite", "prisma"],
   },
   {
-    title: "Design",
-    icon: ["figma"],
+    title: "Version control",
+    icon: ["github"],
   },
   {
     title: "Production",
@@ -44,10 +41,6 @@ const techstacks = [
       "linux",
       "neon",
     ],
-  },
-  {
-    title: "Version control",
-    icon: ["github"],
   },
 ];
 

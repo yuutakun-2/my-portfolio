@@ -10,14 +10,13 @@ import {
 
 import { useState } from "react";
 import { useApp } from "../../src/AppProvider";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import LightbulbIcon from "@mui/icons-material/Lightbulb";
-import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 
 const navigations = [
   {
@@ -119,6 +118,7 @@ export default function Header() {
           `}
         </style>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          {/* Left column */}
           <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
             <Box
               className="logo"
@@ -149,67 +149,75 @@ export default function Header() {
               </Button>
             </Box>
           </Box>
-          <nav sx={{ display: "flex", gap: "20px" }}>
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 4,
-              }}
-            >
-              {navigations.map((navigation, index) => {
-                return (
-                  <Button
-                    key={index}
-                    className="nav-button"
-                    color="inherit"
-                    onClick={() => scrollToSection(navigation.name)}
-                    sx={{
-                      fontFamily: "Sintony, sans-serif",
-                    }}
-                  >
-                    {navigation.desc}
-                  </Button>
-                );
-              })}
-              <Box>
-                {isDark ? (
-                  <IconButton onClick={() => setIsDark(false)}>
-                    <LightbulbIcon
-                      sx={{ color: isDark ? "dark.text" : "light.text" }}
-                    />
-                  </IconButton>
-                ) : (
-                  <IconButton onClick={() => setIsDark(true)}>
-                    <LightbulbOutlinedIcon
-                      sx={{ color: isDark ? "dark.text" : "light.text" }}
-                    />
-                  </IconButton>
-                )}
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              <Button onClick={toggleDrawer(true)}>
-                <MenuIcon sx={{ color: "#fff" }} />
-              </Button>
-              <Drawer
-                open={open}
-                anchor="right"
-                onClose={toggleDrawer(false)}
-                PaperProps={{
-                  sx: {
-                    backgroundColor: "#282F37",
-                    color: "#FFFFFF",
-                  },
+          {/* Right column */}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: { xs: "row-reverse", md: "row" },
+              gap: 2,
+            }}
+          >
+            <Box>
+              {/* Desktop navigation */}
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  gap: 4,
                 }}
               >
-                {DrawerList}
-              </Drawer>
+                {navigations.map((navigation, index) => {
+                  return (
+                    <Button
+                      key={index}
+                      className="nav-button"
+                      color="inherit"
+                      onClick={() => scrollToSection(navigation.name)}
+                      sx={{
+                        fontFamily: "Sintony, sans-serif",
+                      }}
+                    >
+                      {navigation.desc}
+                    </Button>
+                  );
+                })}
+              </Box>
+              {/* Mobile Drawer Section */}
+              <Box
+                sx={{
+                  display: { xs: "block", md: "none" },
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <MenuIcon
+                    sx={{ color: "#fff" }}
+                    onClick={toggleDrawer(true)}
+                  />
+                </Box>
+                <Drawer
+                  open={open}
+                  anchor="right"
+                  onClose={toggleDrawer(false)}
+                  PaperProps={{
+                    sx: {
+                      backgroundColor: "#282F37",
+                      color: "#FFFFFF",
+                    },
+                  }}
+                >
+                  {DrawerList}
+                </Drawer>
+              </Box>
             </Box>
-          </nav>
+            <ThemeSwitcher />
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

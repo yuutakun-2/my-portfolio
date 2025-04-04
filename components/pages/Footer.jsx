@@ -165,7 +165,7 @@ export default function Footer() {
                 color: isDark ? "dark.text" : "light.text",
               }}
             >
-              Contact
+              &lt; Contact &gt;
             </Typography>
             <Box
               sx={{

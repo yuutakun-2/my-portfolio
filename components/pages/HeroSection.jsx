@@ -77,7 +77,7 @@ export default function HeroSection() {
                 fontFamily: "Ubuntu, sans-serif",
                 fontWeight: "bold",
                 color: isDark ? "dark.main" : "light.main",
-                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
               }}
             >
               Arkar Chan Myae <br /> @ Yuuta
