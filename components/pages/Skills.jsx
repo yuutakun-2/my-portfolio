@@ -7,7 +7,7 @@ import {
 } from "@phosphor-icons/react";
 
 import "../Appear.css";
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 
 const skills = [
   {

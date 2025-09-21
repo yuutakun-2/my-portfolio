@@ -6,7 +6,7 @@ import Projects from "../components/pages/Projects";
 import TechStack from "../components/pages/TechStack";
 import Footer from "../components/pages/Footer";
 
-import { useApp } from "./AppProvider";
+import { useApp } from "./context/AppContext";
 import { Box } from "@mui/material";
 
 export default function App() {
@@ -22,11 +22,11 @@ export default function App() {
       <Box sx={{ margin: "16px 0" }} />
       <HeroSection />
       <Box sx={{ margin: "16px 0" }} />
-      <AboutMe />
+      <Projects />
       <Box sx={{ margin: "16px 0" }} />
       <TechStack />
       <Box sx={{ margin: "16px 0" }} />
-      <Projects />
+      <AboutMe />
       <Box sx={{ margin: "16px 0" }} />
       <Skills />
       <Box sx={{ margin: "16px 0" }} />

@@ -4,7 +4,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
 import { useState } from "react";
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 
 import "../Appear.css";
 

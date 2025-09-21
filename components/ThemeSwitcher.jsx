@@ -1,5 +1,5 @@
 import { Box, IconButton } from "@mui/material";
-import { useApp } from "../src/AppProvider";
+import { useApp } from "../src/context/AppContext";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 

@@ -5,11 +5,10 @@ import {
   Box,
   Typography,
   Container,
-  IconButton,
 } from "@mui/material";
 
 import { useState } from "react";
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 import ThemeSwitcher from "../ThemeSwitcher";
 
 import Drawer from "@mui/material/Drawer";
@@ -35,7 +34,7 @@ const navigations = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const { isDark, setIsDark } = useApp();
+  const { isDark } = useApp();
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -64,13 +63,28 @@ export default function Header() {
           return (
             <ListItem key={index} disablePadding>
               <ListItemButton
-                className="nav-button"
                 color="inherit"
                 onClick={() => {
                   scrollToSection(navigation.name);
                 }}
-                style={{
+                sx={{
                   fontFamily: "Sintony, sans-serif",
+                  position: "relative",
+                  overflow: "hidden",
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: "2px",
+                    backgroundColor: isDark ? "dark.darker" : "light.darker",
+                    transform: "scaleX(0)",
+                    transition: "transform 0.3s ease",
+                  },
+                  "&:hover::after": {
+                    transform: "scaleX(1)",
+                  },
                 }}
               >
                 {navigation.desc}
@@ -96,25 +110,6 @@ export default function Header() {
           {`
             @import url('https://fonts.googleapis.com/css2?family=Sintony:wght@400;700&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
-            .nav-button {
-              text-transform: capitalize;
-              position: relative;
-              overflow: hidden;
-            }
-            .nav-button::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              height: 2px;
-              background-color: #218A4E;
-              transform: scaleX(0);
-              transition: transform 0.3s ease;
-            }
-            .nav-button:hover::after {
-              transform: scaleX(1);
-            }
           `}
         </style>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -129,11 +124,27 @@ export default function Header() {
               }}
             >
               <Button
-                className="nav-button"
                 color="inherit"
                 onClick={() => scrollToSection("herosection")}
                 sx={{
                   fontFamily: "Sintony, sans-serif",
+                  textTransform: "lowercase",
+                  position: "relative",
+                  overflow: "hidden",
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    height: "2px",
+                    backgroundColor: isDark ? "dark.darker" : "light.darker",
+                    transform: "scaleX(0)",
+                    transition: "transform 0.3s ease",
+                  },
+                  "&:hover::after": {
+                    transform: "scaleX(1)",
+                  },
                 }}
               >
                 <Typography
@@ -176,6 +187,24 @@ export default function Header() {
                       onClick={() => scrollToSection(navigation.name)}
                       sx={{
                         fontFamily: "Sintony, sans-serif",
+                        position: "relative",
+                        overflow: "hidden",
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          height: "2px",
+                          backgroundColor: isDark
+                            ? "dark.darker"
+                            : "light.darker",
+                          transform: "scaleX(0)",
+                          transition: "transform 0.3s ease",
+                        },
+                        "&:hover::after": {
+                          transform: "scaleX(1)",
+                        },
                       }}
                     >
                       {navigation.desc}

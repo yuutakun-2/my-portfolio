@@ -3,8 +3,8 @@ import { Box, Typography, Button, Container } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { useApp } from "../../src/AppProvider";
+import { Navigation } from "swiper/modules";
+import { useApp } from "../../src/context/AppContext";
 import { useTheme } from "@mui/styles";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,6 +16,15 @@ import "swiper/css/scrollbar";
 import "../Appear.css";
 
 const projects = [
+  {
+    title: "ScholarshipBridge",
+    description:
+      "Scholarship-Bridge is the project I worked on with my hackathon team YouthMindsCore as a team lead, where we connect the scholarship seeking students to the scholarships around the world, bridging the gap between the two as much as we can, and also to be the portal-to-go for all the scholarship information and to be a scholarship-community website.",
+    href: "https://scholarship-bridge.vercel.app/",
+    repo: "https://github.com/yuutakun-2/scholarship-bridge",
+    imgSrc: "../scholarship-bridge.jpg  ",
+    category: ["React", "Laravel", "MaterialUI", "PHP"],
+  },
   {
     title: "TechSuggest",
     description:

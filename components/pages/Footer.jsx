@@ -18,7 +18,7 @@ import {
   Dot,
 } from "@phosphor-icons/react";
 
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 import { getYear } from "date-fns";
 
 const currentYear = getYear(new Date());

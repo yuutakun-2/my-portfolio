@@ -2,7 +2,7 @@ import { Box, Typography, Container, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 
 import "../Appear.css";
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 
 export default function HeroSection() {
   const [fadeIn, setFadeIn] = useState(false);
@@ -147,7 +147,7 @@ export default function HeroSection() {
           }}
         >
           <img
-            src="../Arkar Chan Myae.png"
+            src="../arkar-chan-myae.svg"
             alt="Profile photo"
             style={{
               borderRadius: "50px",

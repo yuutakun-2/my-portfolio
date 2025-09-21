@@ -6,7 +6,7 @@ import {
   LinkedinLogo,
 } from "@phosphor-icons/react";
 
-import { useApp } from "../../src/AppProvider";
+import { useApp } from "../../src/context/AppContext";
 
 export default function SocialIcons() {
   const { isDark } = useApp();
