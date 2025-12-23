@@ -91,13 +91,11 @@ export default function HeroSection() {
               color: isDark ? "dark.text" : "light.text",
             }}
           >
-            An aspiring full-stack developer & UI/UX Designer
+            Full-stack developer passionate about technology and innovations 
             <br />
-            Passionate about technology and innovations
+            that revive old and dead technology, 
             <br />
-            that enhance quality of life
-            <br />
-            through user-friendly digital solutions.
+            and enhance quality of life through user-friendly solutions.
           </Typography>
           <Box display="flex" gap={4} marginY={2}>
             <Button
