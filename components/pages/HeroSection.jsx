@@ -91,9 +91,9 @@ export default function HeroSection() {
               color: isDark ? "dark.text" : "light.text",
             }}
           >
-            Full-stack developer passionate about technology and innovations 
+            Full-stack developer passionate about technology and 
             <br />
-            that revive old and dead technology, 
+            innovations that revive old and dead technology, 
             <br />
             and enhance quality of life through user-friendly solutions.
           </Typography>
