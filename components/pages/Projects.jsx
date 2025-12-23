@@ -17,6 +17,15 @@ import "../Appear.css";
 
 const projects = [
   {
+    title: "AWS Developer Old Questions",
+    description:
+      "CMS-based website to collect and organize AWS Developer exam old questions for fellow AWS Developer enthusiasts. The questions are sourced from examtopics.com, and full credit goes to them. My goal is not to replace existing resources, but to make revision and contribution more structured and accessible.",
+    href: "https://aws-developer-old-questions.vercel.app/",
+    repo: "https://github.com/FutureMindsDev/aws-developer-questions.git",
+    imgSrc: "../aws-dev-old-questions.jpeg",
+    category: ["Next.js", "Typescript", "TailwindCSS", "MongoDB", "RadixUI"],
+  },
+  {
     title: "ScholarshipBridge",
     description:
       "Scholarship-Bridge is the project I worked on with my hackathon team YouthMindsCore as a team lead, where we connect the scholarship seeking students to the scholarships around the world, bridging the gap between the two as much as we can, and also to be the portal-to-go for all the scholarship information and to be a scholarship-community website.",
