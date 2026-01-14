@@ -55,8 +55,8 @@ const socialLink = [
     icon: <Phone size={20} />,
   },
   {
-    name: "Myanmar",
-    href: "https://www.google.com/maps/place/Myanmar",
+    name: "Punjab",
+    href: "https://www.google.com/maps/place/Punjab",
     icon: <MapPin size={20} />,
   },
 ];

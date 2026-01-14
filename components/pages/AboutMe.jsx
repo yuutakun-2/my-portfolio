@@ -10,6 +10,12 @@ import "../Appear.css";
 
 const educations = [
   {
+    title: "B.Tech (Computer Science & Engineering), Lovely Professional University",
+    duration: "Jan 2026 - Ongoing",
+    description:
+      "Learning Computer Science fundamentals with a focus on innovation, entrepreneurship, and emerging technologies. Building comprehensive knowledge in programming, algorithms, software development, and cutting-edge technological advancements.",
+  },
+  {
     title: "University of the People, Bachelor of Computer Science",
     duration: "Feb 2025 - Ongoing",
     description:

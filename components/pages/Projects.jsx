@@ -35,6 +35,15 @@ const projects = [
     category: ["React", "Laravel", "MaterialUI", "PHP"],
   },
   {
+    title: "Vet Clinic Website with AI for Pet food formulation",
+    description:
+      "Modern veterinary clinic website featuring AI-powered pet food formulation, i18n for server status code translation and contents, smooth animations, and optimized web performance through strategic refactoring.",
+    href: "",
+    repo: "",
+    imgSrc: "../vet-clinic-website.jpg",
+    category: ["nextjs", "framer-motion", "tailwindcss", "radixui", "lucide-react"],
+  },
+  {
     title: "TechSuggest",
     description:
       "TechSuggest is a collaborative work of FutureMindsDev team on Google Gemini AI-powered Messaging bot for quick, personalized gadget recommendations, together with Facebook API for Messenger integration.",
@@ -120,6 +129,8 @@ const categories = [
       "TailwindCSS",
       "NextJS",
       "RadixUI",
+      "framer-motion",
+      "lucide-react",
     ],
   },
   {
@@ -169,6 +180,8 @@ const categories = [
       "Expo Router",
       "React Router",
       "React Query",
+      "framer-motion",
+      "lucide-react",
     ],
   },
 ];
